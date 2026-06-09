@@ -24,6 +24,15 @@ p, h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+.text-gradient-dark2-cyan {
+    background: linear-gradient(90deg, #323641 0%, #2B99D1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.bg-gradient-dark2-cyan {
+    background: linear-gradient(90deg, #323641 0%, #2B99D1 100%);
+}
 
 /* Hero Background Responsive */
 .hero-bg {
@@ -36,6 +45,38 @@ p, h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1024px) {
     .hero-bg {
         background-image: url('../assets/Hero Imgs/Hero-BG.png');
+    }
+}
+
+/* About Us Hero Background — dot pattern + gradient */
+.about-hero-bg {
+    background-image: linear-gradient(to bottom, transparent 30%, #21242B 90%), url('../assets/Hero Imgs/Hero-BG-Mobile.png');
+    background-size: cover, 100% auto;
+    background-position: center, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-color: #21242B;
+}
+@media (min-width: 1024px) {
+    .about-hero-bg {
+        background-image: url('../assets/Hero Imgs/Hero-BG.png'), linear-gradient(to right, #21242B, #0C1115);
+        background-size: cover, cover;
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+    }
+}
+
+
+/* About Us Stats Section Background */
+.about-stats-bg {
+    background-image: url('../assets/About%20Us/Data-Grid-BG-img-Mobile.png');
+    background-size: auto;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+@media (min-width: 1024px) {
+    .about-stats-bg {
+        background-image: url('../assets/About%20Us/Data-Grid-BG-img.png');
+        background-position: left bottom;
     }
 }
 

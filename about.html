@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Airexs US — HVAC Engineering Firm</title>
+    <meta name="description" content="Learn about Airexs US, an HVAC engineering firm built to support complex mechanical decisions for industrial and commercial projects.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            h1 { @apply font-medium text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] leading-[110%] tracking-[0px]; }
+            h2 { 
+                @apply font-medium text-[32px] md:text-[45px] tracking-[0px];
+                line-height: 120%;
+                text-wrap: balance;
+            }
+            h3 { 
+                @apply font-medium text-[28px] md:text-[38px] tracking-[0px];
+                line-height: 120%;
+                text-wrap: balance;
+            }
+            h4 { @apply font-medium text-[20px] md:text-[24px] leading-[120%] tracking-[0.2px]; }
+            h5 { @apply font-medium text-[18px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
+            h6 { @apply font-medium text-[16px] md:text-[18px] leading-[140%] tracking-[0.2px]; }
+            p { @apply font-normal text-[14px] md:text-[16px] leading-[160%] tracking-[0.2px]; }
+        }
+        @layer components {
+            .btn-cyan {
+                @apply bg-primary-cyan text-primary-pure-white hover:opacity-90 transition-all inline-flex items-center justify-center;
+            }
+            .btn-yellow {
+                @apply bg-primary-yellow text-primary-black hover:opacity-90 transition-all inline-flex items-center justify-center;
+            }
+            .btn-outline-yellow {
+                @apply border border-primary-yellow text-primary-yellow bg-transparent hover:bg-primary-yellow hover:text-primary-black transition-all inline-flex items-center justify-center;
+            }
+            .btn-gradient {
+                background: linear-gradient(135deg, #FFE900 0%, #2B99D1 50%, #FFE900 100%);
+                background-size: 200% auto;
+                background-position: 0% center;
+                @apply text-primary-black transition-all duration-500 inline-flex items-center justify-center;
+            }
+            .btn-gradient:hover {
+                background-position: 100% center;
+            }
+            .btn-cyan, .btn-yellow, .btn-outline-yellow, .btn-gradient {
+                @apply rounded-[10px] font-semibold text-[14px] leading-[28px] tracking-[0.2px] px-[20px] py-[10px];
+            }
+        }
+    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=1.3">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-primary-white text-primary-black antialiased font-sans">
+    
+    <!-- Navbar -->
+    <nav class="bg-[#21242B] w-full h-20 flex items-center fixed top-0 z-50 lg:px-[80px]">
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/Logo-Nav.svg" alt="Airexs US" class="w-[200px] h-auto">
+            </a>
+
+            <!-- Hamburger Menu Icon -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-white hover:text-primary-yellow focus:outline-none transition-colors">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+
+            <!-- Menu + Buttons Group -->
+            <div class="hidden lg:flex items-center gap-[20px]">
+                <!-- Links -->
+                <div class="flex items-center gap-[20px] text-[16px] leading-[160%] tracking-[0.2px] font-normal text-primary-white">
+                    <a href="#" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">Our Work</a>
+                    
+                    <a href="about.html" class="border-b-2 border-primary-yellow text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">About Us</a>
+                    
+                    <div class="relative group cursor-pointer">
+                        <div class="flex items-center border-b-2 border-transparent group-hover:border-primary-yellow group-hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">
+                            Services <span class="material-symbols-outlined text-[20px] ml-1 group-hover:text-primary-yellow transition-colors duration-200">expand_more</span>
+                        </div>
+                        
+                        <!-- Dropdown Menu Wrapper -->
+                        <div class="absolute left-1/2 -translate-x-1/2 top-[100%] pt-4 hidden group-hover:block z-50">
+                            <div class="flex flex-col gap-2 w-max min-w-[240px]">
+                                <a href="#" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC design and drafting</a>
+                                <a href="#" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">MEP engineering support</a>
+                                <a href="#" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC engineering services</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">FAQ</a>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex items-center gap-[20px]">
+                    <a href="#" class="btn-cyan">Contact</a>
+                    <a href="#" class="btn-outline-yellow">Blog</a>
+                </div>
+            </div>
+        </div>
+        <!-- Gradient Bottom Border -->
+        <div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-primary-yellow to-primary-cyan"></div>
+        
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-[80px] left-0 w-full bg-[#21242B] border-t border-gray-700 shadow-xl overflow-y-auto" style="max-height: calc(100vh - 80px);">
+            <div class="flex flex-col p-[20px] gap-5 text-primary-white">
+                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
+                <a href="about.html" class="text-[18px] w-max font-medium border-b-2 border-primary-yellow text-primary-cyan transition-all duration-200 py-1">About Us</a>
+                
+                <!-- Mobile Services Dropdown -->
+                <div class="flex flex-col">
+                    <button id="mobile-services-btn" class="flex items-center gap-2 text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1 text-left">
+                        Services
+                        <span id="mobile-services-icon" class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden flex-col gap-3 pl-4 pt-4 pb-2">
+                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC design and drafting</a>
+                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">MEP engineering support</a>
+                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC engineering services</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">FAQ</a>
+                
+                <div class="h-[1px] w-full bg-gray-700 my-2"></div>
+                
+                <a href="#" class="btn-cyan justify-center mb-2">Contact</a>
+                <a href="#" class="btn-outline-yellow justify-center">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== -->
+    <!-- HERO SECTION         -->
+    <!-- ==================== -->
+    <section class="about-hero-bg relative pt-[120px] lg:pt-[180px] pb-[60px] lg:pb-[100px] lg:px-[80px] overflow-hidden">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-10 grid grid-cols-12 gap-[20px] items-center">
+            <!-- Left Text -->
+            <div class="col-span-12 lg:col-span-8 flex flex-col items-center lg:items-start text-center lg:text-left gap-[30px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                <h1 class="uppercase text-primary-white">
+                    AN <span class="text-gradient-yellow-cyan">HVAC ENGINEERING FIRM</span><br>
+                    BUILT TO SUPPORT COMPLEX MECHANICAL DECISIONS
+                </h1>
+                
+                <p class="text-gray-300 max-w-[540px]" style="text-wrap: balance;">
+                    Airexs US helps technical teams define <strong class="text-primary-white">HVAC system design</strong> with clarity, coordination, and execution-ready <strong class="text-primary-white">engineering services</strong>.
+                </p>
+
+                <!-- Email Input + CTA -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md items-stretch">
+                    <div class="relative flex-1 p-[1px] rounded-[10px] bg-gradient-to-r from-primary-yellow to-primary-cyan">
+                        <input type="email" placeholder="Your email address" class="w-full h-full bg-primary-pure-white text-[#ABABAB] placeholder-[#ABABAB] rounded-[9px] px-[20px] py-[12px] text-[14px] focus:outline-none">
+                    </div>
+                    <a href="#" class="btn-gradient whitespace-nowrap">Our work</a>
+                </div>
+                <p class="text-primary-white text-[12px] leading-[160%] -mt-3">
+                    By continuing, you agree to our terms and privacy policy.
+                </p>
+            </div>
+
+            <!-- Right Image -->
+            <div class="col-span-12 lg:col-span-4 flex justify-center lg:justify-end scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                <img src="assets/About Us/Hero-img.png" alt="HVAC Engineering Equipment" class="w-full max-w-[380px] lg:max-w-none h-auto rounded-[20px]">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- BULLET POINTS SECTION     -->
+    <!-- ========================= -->
+    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
+        <div class="max-w-[1280px] px-[40px] md:px-[20px] w-full mx-auto grid grid-cols-12 gap-[20px] items-center">
+            
+            <!-- Left: Illustration Image (6 cols) -->
+            <div class="col-span-12 md:col-span-4 lg:col-span-6 flex justify-center scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                <img src="assets/About Us/Bullet-Points-img.png" alt="HVAC Engineering System Design" class="w-full h-auto max-w-[520px] lg:max-w-none">
+            </div>
+
+            <!-- Right: Bullet Points (5 cols + 1 col auto margin) -->
+            <div class="col-span-12 md:col-span-7 md:col-start-6 lg:col-span-5 lg:col-start-8 flex flex-col gap-[36px] mt-[40px] md:mt-0 max-w-[520px] mx-auto md:max-w-none md:mx-0 scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                <!-- Bullet 1 -->
+                <div class="flex gap-5 items-start">
+                    <img src="assets/About Us/RightCircleOutlined.svg" alt="" class="w-[44px] h-[44px] flex-shrink-0 mt-[2px]">
+                    <div>
+                        <h4 class="text-primary-cyan mb-3">HVAC design with technical purpose</h4>
+                        <p class="text-secondary-dark2 text-[13px] md:text-[14px] leading-[160%]">
+                            We support HVAC design services that connect project requirements, ventilation, indoor air quality, and long-term system performance.
+                        </p>
+                    </div>
+                </div>
+                <!-- Bullet 2 -->
+                <div class="flex gap-5 items-start">
+                    <img src="assets/About Us/RightCircleOutlined.svg" alt="" class="w-[44px] h-[44px] flex-shrink-0 mt-[2px]">
+                    <div>
+                        <h4 class="text-primary-cyan mb-3">Mechanical engineering clarity</h4>
+                        <p class="text-secondary-dark2 text-[13px] md:text-[14px] leading-[160%]">
+                            Our work helps teams review mechanical systems, airflow, humidity, filtration, and facility constraints before design decisions become costly.
+                        </p>
+                    </div>
+                </div>
+                <!-- Bullet 3 -->
+                <div class="flex gap-5 items-start">
+                    <img src="assets/About Us/RightCircleOutlined.svg" alt="" class="w-[44px] h-[44px] flex-shrink-0 mt-[2px]">
+                    <div>
+                        <h4 class="text-primary-cyan mb-3">MEP coordination support</h4>
+                        <p class="text-secondary-dark2 text-[13px] md:text-[14px] leading-[160%]">
+                            As an MEP engineering firm, Airexs US helps align HVAC, electrical, and plumbing systems with project execution needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== -->
+    <!-- STATS SECTION        -->
+    <!-- ==================== -->
+    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-white overflow-hidden">
+        <!-- Top Gradient Border -->
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent z-20"></div>
+
+        <!-- Dot Pattern Background -->
+        <img src="assets/About Us/Data-Grid-BG-img.png?v=2" alt="" class="absolute bottom-0 left-0 hidden lg:block w-auto h-auto z-0 pointer-events-none mix-blend-exclusion opacity-60">
+        <img src="assets/About Us/Data-Grid-BG-img-Mobile.png?v=2" alt="" class="absolute top-0 left-0 lg:hidden w-auto h-auto z-0 pointer-events-none mix-blend-exclusion opacity-60">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-[40px] lg:gap-[20px] items-start relative z-10">
+            <!-- Left Column: Text -->
+            <div class="col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left gap-[24px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                <h2 class="text-primary-black">
+                    Project capacity built around complex <span class="text-primary-cyan">HVAC engineering</span> work
+                </h2>
+                <p class="text-secondary-dark2 max-w-md">
+                    Airexs US combines technical support, supplier relationships, and project experience to guide better HVAC and MEP decisions.
+                </p>
+                <a href="#" class="btn-yellow mt-2 text-[13px] px-[16px] py-[8px]">
+                    View
+                </a>
+            </div>
+
+            <!-- Right Column: Stats (single column) -->
+            <div class="col-span-12 lg:col-span-6 lg:col-start-7 flex flex-col gap-[20px] scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                <!-- Stat 1 -->
+                <div class="bg-secondary-dark2 rounded-[20px] p-[30px] md:p-[36px] flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                    <span class="text-gradient-yellow-cyan text-[80px] lg:text-[120px] font-bold leading-[100%] tracking-tight stat-counter" data-target="80">0</span>
+                    <span class="text-white text-[20px] lg:text-[32px] mt-1 leading-[120%]">Professional members</span>
+                </div>
+                <!-- Stat 2 -->
+                <div class="bg-secondary-dark2 rounded-[20px] p-[30px] md:p-[36px] flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                    <span class="text-gradient-yellow-cyan text-[80px] lg:text-[120px] font-bold leading-[100%] tracking-tight stat-counter" data-target="250" data-suffix="+">0</span>
+                    <span class="text-white text-[20px] lg:text-[32px] mt-1 leading-[120%]">Projects completed</span>
+                </div>
+                <!-- Stat 3 -->
+                <div class="bg-secondary-dark2 rounded-[20px] p-[30px] md:p-[36px] flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                    <span class="text-gradient-yellow-cyan text-[80px] lg:text-[120px] font-bold leading-[100%] tracking-tight stat-counter" data-target="60">0</span>
+                    <span class="text-white text-[20px] lg:text-[32px] mt-1 leading-[120%]">Supplier brands</span>
+                </div>
+                <!-- Stat 4 -->
+                <div class="bg-secondary-dark2 rounded-[20px] p-[30px] md:p-[36px] flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                    <span class="text-gradient-yellow-cyan text-[80px] lg:text-[120px] font-bold leading-[100%] tracking-tight stat-counter" data-target="5">0</span>
+                    <span class="text-white text-[20px] lg:text-[32px] mt-1 leading-[120%]">Client satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================ -->
+    <!-- WHAT TECHNICAL BUYERS SECTION    -->
+    <!-- ================================ -->
+    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-secondary-dark2">
+        <div class="max-w-[1280px] px-[40px] md:px-[20px] w-full mx-auto grid grid-cols-12 gap-[30px] lg:gap-[40px] items-center">
+            
+            <!-- Left Column: Text (6 cols on lg) -->
+            <div class="col-span-12 lg:col-span-6 scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-[24px] md:gap-[30px] items-start text-center md:text-left">
+                    <h2 class="text-primary-white">
+                        What technical buyers should look for in <span class="text-gradient-yellow-cyan">HVAC engineering firms</span>
+                    </h2>
+                    <div class="flex flex-col gap-[20px] items-center md:items-start">
+                        <p class="text-gray-300 max-w-lg">
+                            When comparing HVAC engineering companies, buyers need more than general experience. They need engineering design, documentation, coordination, and practical understanding of facility risk.
+                        </p>
+                        <a href="#" class="btn-cyan mt-2 text-[13px] px-[16px] py-[8px]">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: 2 Cards side by side (6 cols on lg) -->
+            <div class="col-span-12 lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-[20px] scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                <!-- Card 1 -->
+                <div class="bg-primary-pure-white rounded-[20px] p-[40px] flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:h-[300px] xl:h-[387px] transition-transform hover:-translate-y-2">
+                    <div class="w-[60px] h-[60px] flex items-center justify-center flex-shrink-0">
+                        <img src="assets/About Us/Technical-Details-Icon-1.svg" alt="Design engineering" class="w-[52px] h-[52px]">
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h5 class="text-gradient-dark2-cyan [text-wrap:auto]">Design engineering connected to real project constraints</h5>
+                        <p class="text-secondary-dark2 text-[13px] leading-[160%] [text-wrap:auto]">
+                            Airexs US helps align HVAC system, equipment needs, facility requirements, and system design decisions.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-primary-pure-white rounded-[20px] p-[40px] flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:h-[300px] xl:h-[387px] transition-transform hover:-translate-y-2">
+                    <div class="w-[60px] h-[60px] flex items-center justify-center flex-shrink-0">
+                        <img src="assets/About Us/Technical-Details-Icon-2.svg" alt="HVAC consulting" class="w-[52px] h-[52px]">
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h5 class="text-gradient-dark2-cyan [text-wrap:auto]">Support from HVAC consulting engineers</h5>
+                        <p class="text-secondary-dark2 text-[13px] leading-[160%] [text-wrap:auto]">
+                            Our consulting engineers help clarify requirements, review risks, and guide better commercial HVAC decisions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================== -->
+    <!-- TEAMS WE SUPPORT SECTION   -->
+    <!-- ========================== -->
+    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-[60px] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                <span class="inline-block bg-primary-white rounded-[12px] px-[16px] py-[6px] mb-6">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">Technical support</span>
+                </span>
+                <h2 class="text-primary-black">
+                    A practical <span class="text-primary-cyan">HVAC and MEP<br class="hidden md:block"> engineering firm</span> for project teams
+                </h2>
+            </div>
+
+            <!-- Cards (12-col grid) -->
+            <div class="grid grid-cols-12 gap-[30px] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                <!-- Card 1 -->
+                <div class="col-span-12 lg:col-span-6 bg-primary-white rounded-[40px] p-[40px] flex flex-col gap-5 lg:h-[800px] group transition-transform hover:-translate-y-2">
+                    <div class="overflow-hidden mb-[20px]">
+                        <img src="assets/About Us/Card-img-1.png" alt="HVAC engineering team at Airexs US" class="w-full h-auto">
+                    </div>
+                    <span class="inline-block w-max bg-gradient-dark2-cyan text-primary-white text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase rounded-[12px] px-[16px] py-[6px]">Engineering approach</span>
+                    <h3 class="text-primary-black [text-wrap:auto]">Support from an <span class="text-primary-cyan">HVAC engineering company</span></h3>
+                    <p class="text-secondary-dark2 text-[14px] leading-[160%] [text-wrap:auto]">
+                        Airexs US supports project leaders who need practical engineering solutions for industrial and commercial HVAC projects.
+                    </p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <a href="#" class="btn-yellow text-[13px] px-[16px] py-[8px]">Details</a>
+                        <a href="#" class="text-primary-black text-[14px] font-medium hover:text-primary-cyan transition-colors flex items-center gap-1">
+                            View approach <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-span-12 lg:col-span-6 bg-primary-white rounded-[40px] p-[40px] flex flex-col gap-5 lg:h-[800px] group transition-transform hover:-translate-y-2">
+                    <div class="overflow-hidden mb-[20px]">
+                        <img src="assets/About Us/Card-img-2.png" alt="HVAC consulting and inspection" class="w-full h-auto">
+                    </div>
+                    <span class="inline-block w-max bg-gradient-dark2-cyan text-primary-white text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase rounded-[12px] px-[16px] py-[6px]">Consulting support</span>
+                    <h3 class="text-primary-black [text-wrap:auto]">An <span class="text-primary-cyan">HVAC consulting firm</span> with mechanical engineering firm perspective</h3>
+                    <p class="text-secondary-dark2 text-[14px] leading-[160%] [text-wrap:auto]">
+                        We connect HVAC consulting, mechanical engineering design, and MEP coordination to support better technical decisions.
+                    </p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <a href="#" class="btn-yellow text-[13px] px-[16px] py-[8px]">Details</a>
+                        <a href="#" class="text-primary-black text-[14px] font-medium hover:text-primary-cyan transition-colors flex items-center gap-1">
+                            View services <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CTA — BETTER DECISIONS SECTION -->
+    <!-- ============================== -->
+    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-white overflow-hidden">
+        <!-- Top Gradient Border -->
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent z-20"></div>
+
+        <!-- Dot Pattern Background (same config as Data Grid) -->
+        <img src="assets/About Us/Contact-Us-BG-img.png?v=3" alt="" class="absolute bottom-0 left-0 hidden lg:block w-auto h-auto z-0 pointer-events-none mix-blend-exclusion opacity-60">
+        <img src="assets/About Us/Contact-Us-BG-img-Mobile.png?v=3" alt="" class="absolute bottom-0 left-0 lg:hidden w-auto h-auto z-0 pointer-events-none mix-blend-exclusion opacity-60">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-[40px] lg:gap-[60px] items-center relative z-10">
+            <!-- Left Content -->
+            <div class="col-span-12 lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-[24px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                <h2 class="text-primary-black">
+                    Work with an <span class="text-primary-cyan">HVAC engineering firm</span> that supports better decisions
+                </h2>
+                <p class="text-secondary-dark2 max-w-lg">
+                    Start with a focused technical conversation before project requirements become expensive changes.
+                </p>
+                <a href="#" class="btn-yellow mt-4">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Right Image -->
+            <div class="col-span-12 lg:col-span-6 flex justify-center lg:justify-end scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                <img src="assets/About Us/Data-Grid-Img.png" alt="Airexs US engineering team" class="w-full max-w-[520px] h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== -->
+    <!-- FOOTER               -->
+    <!-- ==================== -->
+    <footer class="relative bg-primary-black pt-[60px] pb-[40px] lg:pt-[100px] lg:px-[80px] overflow-hidden">
+        <!-- Background Pattern -->
+        <img src="assets/BG-Footer.png" alt="" class="absolute bottom-0 left-0 hidden lg:block w-auto h-[100%] object-cover opacity-50 z-0 pointer-events-none">
+        <img src="assets/BG-Footer-Mobile.png" alt="" class="absolute bottom-0 left-0 lg:hidden w-full h-auto object-cover opacity-50 z-0 pointer-events-none">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-10 flex flex-col">
+            
+            <!-- Top Content Row -->
+            <div class="flex flex-col lg:flex-row justify-between gap-[60px] lg:gap-[40px]">
+                
+                <!-- Left Side (Logo & Reach Card) -->
+                <div class="flex flex-col w-full lg:w-[55%] xl:w-[50%] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                    <!-- Logo and Text -->
+                    <div class="flex flex-col md:flex-row items-start gap-8 md:gap-[60px] mb-[60px]">
+                        <img src="assets/Logo-Footer.svg" alt="Airexs US" class="w-[120px] md:w-[150px] h-auto flex-shrink-0">
+                        <div class="flex flex-col gap-8 max-w-[320px]">
+                            <p class="text-white text-[16px] leading-[160%]">
+                                Get the latest insights on design, engineering, and sustainable solutions delivered straight to your inbox.
+                            </p>
+                            <p class="text-white text-[16px] leading-[160%]">
+                                Sydney, NSW 2000, Australia
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reach Card -->
+                    <div class="w-full bg-gradient-to-r from-primary-yellow to-primary-cyan rounded-[40px] p-[30px] md:p-[40px] flex flex-col sm:flex-row justify-between gap-6 md:gap-[20px] xl:gap-[40px] min-h-[220px]">
+                        <!-- Left Column: Title -->
+                        <div class="flex items-start">
+                            <h2 class="text-primary-black text-[40px] md:text-[45px] xl:text-[56px] font-medium leading-[120%] [text-wrap:balance]">Reach</h2>
+                        </div>
+                        <!-- Right Column: Info & Socials -->
+                        <div class="flex flex-col sm:justify-between items-start sm:items-end flex-1 w-full h-full">
+                            <div class="flex flex-col gap-0 text-[18px] md:text-[20px] xl:text-[24px] font-medium text-left sm:text-right leading-[1.2]">
+                                <span>+61 2 9000 0000</span>
+                                <span>hello@airexsus.com</span>
+                            </div>
+                            <div class="flex items-center gap-4 justify-start sm:justify-end mt-6 sm:mt-auto w-full">
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/Facebook.png" alt="Facebook" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/Instagram.png" alt="Instagram" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/X.png" alt="X" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/LinkedIn.png" alt="LinkedIn" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/Youtube.png" alt="Youtube" class="h-5 xl:h-6 w-auto"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side (Links Grid) -->
+                <div class="w-full lg:w-[40%] grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-0 scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                    <!-- Column 1 -->
+                    <div class="flex flex-col w-full h-max">
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">HVAC design</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">MEP support</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Engineering</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Drafting</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Our work</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                    </div>
+                    
+                    <!-- Column 2 -->
+                    <div class="flex flex-col w-full h-max">
+                        <a href="about.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">About us</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Blog</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Contact</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">FAQ</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Resources</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="flex flex-col md:flex-row items-center md:items-end justify-between gap-6 pt-[60px] lg:pt-[100px]">
+                <p class="text-white text-[14px]">
+                    © 2026 Airexsus. All rights reserved.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-6">
+                    <a href="#" class="text-primary-cyan text-[14px] hover:text-primary-yellow transition-colors underline underline-offset-4">Privacy policy</a>
+                    <a href="#" class="text-primary-cyan text-[14px] hover:text-primary-yellow transition-colors underline underline-offset-4">Terms of service</a>
+                    <a href="#" class="text-primary-cyan text-[14px] hover:text-primary-yellow transition-colors underline underline-offset-4">Cookie settings</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+<!-- Scroll Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove initial hidden states
+                    entry.target.classList.remove('opacity-0', '-translate-x-[50px]', 'translate-x-[50px]', '-translate-x-[100px]', 'translate-x-[100px]', 'translate-y-[50px]', 'translate-y-[100px]');
+                    // Ensure element is fully visible and in place
+                    entry.target.classList.add('opacity-100', 'translate-x-0', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+
+<!-- Counter Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const duration = 2000;
+            const start = performance.now();
+
+            function update(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+                el.textContent = Math.round(eased * target) + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        const counterObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-counter').forEach(el => {
+            counterObserver.observe(el);
+        });
+    });
+</script>
+
+<!-- Mobile Menu Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileServicesBtn = document.getElementById('mobile-services-btn');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('span');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.textContent = 'menu';
+                } else {
+                    icon.textContent = 'close';
+                }
+            });
+        }
+
+        if (mobileServicesBtn && mobileServicesMenu) {
+            mobileServicesBtn.addEventListener('click', () => {
+                mobileServicesMenu.classList.toggle('hidden');
+                mobileServicesMenu.classList.toggle('flex');
+                if (mobileServicesMenu.classList.contains('hidden')) {
+                    mobileServicesIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    mobileServicesIcon.style.transform = 'rotate(180deg)';
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
