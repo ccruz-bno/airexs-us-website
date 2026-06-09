@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Kit: Engineering Workspace Dashboard</title>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; }
+    #root { display: flex; height: 100vh; overflow: hidden; background: var(--primary-white); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Load Components -->
+  <script type="text/babel" src="components/Sidebar.jsx"></script>
+  <script type="text/babel" src="components/AssistantsList.jsx"></script>
+  <script type="text/babel" src="components/ChatArea.jsx"></script>
+  <script type="text/babel" src="components/MessageBubble.jsx"></script>
+  <script type="text/babel" src="components/InputBar.jsx"></script>
+  <script type="text/babel" src="components/App.jsx"></script>
+
+  <!-- Mount App -->
+  <script type="text/babel">
+    const { App } = window;
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

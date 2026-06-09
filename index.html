@@ -9,9 +9,17 @@
     <script src="js/tailwind.config.js"></script>
     <style type="text/tailwindcss">
         @layer base {
-            h1 { @apply font-medium text-[40px] md:text-[56px] leading-[110%] tracking-[0px]; }
-            h2 { @apply font-medium text-[32px] md:text-[48px] leading-[110%] tracking-[0px]; }
-            h3 { @apply font-medium text-[28px] md:text-[40px] leading-[110%] tracking-[0px]; }
+            h1 { @apply font-medium text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] leading-[110%] tracking-[0px]; }
+            h2 { 
+                @apply font-medium text-[32px] md:text-[45px] tracking-[0px];
+                line-height: 120%;
+                text-wrap: balance;
+            }
+            h3 { 
+                @apply font-medium text-[28px] md:text-[38px] tracking-[0px];
+                line-height: 120%;
+                text-wrap: balance;
+            }
             h4 { @apply font-medium text-[20px] md:text-[24px] leading-[120%] tracking-[0.2px]; }
             h5 { @apply font-medium text-[18px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
             h6 { @apply font-medium text-[16px] md:text-[18px] leading-[140%] tracking-[0.2px]; }
@@ -19,7 +27,7 @@
         }
         @layer components {
             .btn-cyan {
-                @apply bg-primary-cyan text-[#FFFFFF] hover:opacity-90 transition-all inline-flex items-center justify-center;
+                @apply bg-primary-cyan text-primary-pure-white hover:opacity-90 transition-all inline-flex items-center justify-center;
             }
             .btn-yellow {
                 @apply bg-primary-yellow text-primary-black hover:opacity-90 transition-all inline-flex items-center justify-center;
@@ -58,7 +66,7 @@
 
             <!-- Hamburger Menu Icon -->
             <div class="lg:hidden flex items-center">
-                <button class="text-white hover:text-primary-yellow focus:outline-none transition-colors">
+                <button id="mobile-menu-btn" class="text-white hover:text-primary-yellow focus:outline-none transition-colors">
                     <span class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
@@ -98,6 +106,34 @@
         </div>
         <!-- Gradient Bottom Border -->
         <div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-primary-yellow to-primary-cyan"></div>
+        
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-[80px] left-0 w-full bg-[#21242B] border-t border-gray-700 shadow-xl overflow-y-auto" style="max-height: calc(100vh - 80px);">
+            <div class="flex flex-col p-[20px] gap-5 text-primary-white">
+                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
+                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">About Us</a>
+                
+                <!-- Mobile Services Dropdown -->
+                <div class="flex flex-col">
+                    <button id="mobile-services-btn" class="flex items-center gap-2 text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1 text-left">
+                        Services
+                        <span id="mobile-services-icon" class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden flex-col gap-3 pl-4 pt-4 pb-2">
+                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC design and drafting</a>
+                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">MEP engineering support</a>
+                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC engineering services</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">FAQ</a>
+                
+                <div class="h-[1px] w-full bg-gray-700 my-2"></div>
+                
+                <a href="#" class="btn-cyan justify-center mb-2">Contact</a>
+                <a href="#" class="btn-outline-yellow justify-center">Blog</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -105,32 +141,31 @@
 
         <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-10 grid grid-cols-12 gap-[20px] items-center">
             <!-- Left Text -->
-            <div class="col-span-12 lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-[40px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+            <div class="col-span-12 lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-[40px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
                 <h1 class="uppercase text-primary-white">
-                    Design and<br>engineering<br>
-                    <span class="text-gradient-yellow-cyan">Built to Last</span>
+                    HVAC ENGINEERING THAT HELPS CRITICAL PROJECTS <span class="text-gradient-yellow-cyan">MOVE FORWARD WITH CLARITY</span>
                 </h1>
                 
                 <!-- Gradient Line -->
                 <div class="w-[200px] h-[4px] rounded-full bg-gradient-to-r from-primary-yellow to-primary-cyan"></div>
 
                 <h6 class="text-gray-300 max-w-lg">
-                    We create solutions that balance innovation with responsibility. Every project integrates sustainable practices and cutting-edge technology to deliver results that matter.
+                    Airexs US helps industrial and commercial teams define critical HVAC engineering requirements with clearer system design, technical documentation, and early risk reduction.
                 </h6>
                 
                 <div>
                     <a href="#" class="btn-gradient">
-                        Explore
+                        Request a preliminary technical review
                     </a>
                 </div>
             </div>
 
             <!-- Right Image Slider -->
-            <div class="col-span-12 lg:col-span-6 flex flex-col items-center gap-[40px] scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+            <div class="col-span-12 lg:col-span-5 flex flex-col items-center gap-[40px] scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
                 <div class="relative w-full lg:w-[120%] max-w-full lg:max-w-[120%] lg:-ml-[10%] mt-[20px] lg:mt-[-10%]">
-                     <img src="assets/hero imgs/Rectangle 2.png" alt="Slider Image 1" class="w-full h-auto opacity-100 transition-opacity duration-1000 slider-img relative z-10">
-                     <img src="assets/hero imgs/Rectangle 3.png" alt="Slider Image 2" class="absolute top-0 left-0 w-full h-auto opacity-0 transition-opacity duration-1000 slider-img z-0">
-                     <img src="assets/hero imgs/Rectangle 4.png" alt="Slider Image 3" class="absolute top-0 left-0 w-full h-auto opacity-0 transition-opacity duration-1000 slider-img z-0">
+                     <img src="assets/Hero Imgs/Rectangle 2.png" alt="Slider Image 1" class="w-full h-auto opacity-100 transition-opacity duration-1000 slider-img relative z-10">
+                     <img src="assets/Hero Imgs/Rectangle 3.png" alt="Slider Image 2" class="absolute top-0 left-0 w-full h-auto opacity-0 transition-opacity duration-1000 slider-img z-0">
+                     <img src="assets/Hero Imgs/Rectangle 4.png" alt="Slider Image 3" class="absolute top-0 left-0 w-full h-auto opacity-0 transition-opacity duration-1000 slider-img z-0">
                 </div>
                 
                 <!-- Dots indicator -->
@@ -146,101 +181,169 @@
     </section>
 
     <!-- What sets us apart Section -->
-    <section class="py-[100px] lg:px-[80px] bg-[#FFFFFF]">
+    <section class="py-[100px] lg:px-[80px] bg-primary-pure-white">
         <div class="max-w-[1280px] px-[20px] w-full mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-medium text-primary-black mb-4 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
-                <span class="text-primary-cyan">What sets us apart</span> in design
+            <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                <span class="text-primary-cyan">Engineering HVAC support for projects where guesswork</span> is not an option
             </h2>
-            <p class="text-primary-black max-w-4xl mx-auto mb-16 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
-                We listen first. We understand the problem before we sketch the solution.<br>Custom strategies mean your project gets exactly what it needs, nothing more, nothing less.
-            </p>
+            <div class="text-primary-black max-w-4xl mx-auto mb-16 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 space-y-4">
+                <p>Airexs US helps industrial and commercial teams define critical HVAC engineering requirements with clearer system design, technical documentation, and early risk reduction.</p>
+                <p>From HVAC design to equipment specification, our work helps technical leaders make confident, defendable, and execution-ready decisions.</p>
+            </div>
 
             <div class="grid grid-cols-12 gap-x-[20px] gap-y-[50px] lg:gap-y-[20px] text-left pt-8">
                 <!-- Card 1 -->
-                <div class="col-span-12 lg:col-span-4 bg-primary-white p-10 pt-12 rounded-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-transform hover:-translate-y-2 relative scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
-                    <img src="assets/What Sets Us Apart Section/Icon Frame.png" alt="Custom design strategies" class="w-16 h-16 absolute -top-8 left-10">
-                    <h3 class="mb-4 text-primary-black">Custom design<br><span class="text-primary-cyan">strategies</span></h3>
-                    <p class="text-secondary-dark2 text-sm">Every project begins with a clear understanding of your specific needs and constraints.</p>
+                <div class="col-span-12 lg:col-span-4 bg-primary-white p-10 rounded-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-transform hover:-translate-y-2 flex flex-col md:flex-row lg:flex-col justify-between md:items-center lg:items-stretch scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                    <img src="assets/What Sets Us Apart Section/Icon Frame.png?v=2" alt="Technical clarity" class="w-[72px] h-[72px] flex-shrink-0 mb-8 md:mb-0 md:mr-10 lg:mr-0 lg:mb-8">
+                    <div class="mt-auto md:mt-0 lg:mt-auto flex-1 flex flex-col justify-end">
+                        <h3 class="mb-4 text-primary-black">Technical <span class="text-primary-cyan">clarity</span></h3>
+                        <p class="text-secondary-dark2 text-sm leading-relaxed">Clear HVAC systems planning, load calculations, air flow analysis, and design criteria before costly project decisions are made.</p>
+                    </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="col-span-12 lg:col-span-4 bg-primary-white p-10 pt-12 rounded-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-transform hover:-translate-y-2 relative scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300">
-                    <img src="assets/What Sets Us Apart Section/Icon Frame-1.png" alt="Integrated technology" class="w-16 h-16 absolute -top-8 left-10">
-                    <h3 class="mb-4 text-primary-black">Integrated<br><span class="text-primary-cyan">technology</span></h3>
-                    <p class="text-secondary-dark2 text-sm">We embed cutting-edge tools and systems into every design for maximum efficiency.</p>
+                <div class="col-span-12 lg:col-span-4 bg-primary-white p-10 rounded-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-transform hover:-translate-y-2 flex flex-col md:flex-row lg:flex-col justify-between md:items-center lg:items-stretch scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300">
+                    <img src="assets/What Sets Us Apart Section/Icon Frame-1.png?v=2" alt="Design to equipment alignment" class="w-[72px] h-[72px] flex-shrink-0 mb-8 md:mb-0 md:mr-10 lg:mr-0 lg:mb-8">
+                    <div class="mt-auto md:mt-0 lg:mt-auto flex-1 flex flex-col justify-end">
+                        <h3 class="mb-4 text-primary-black">Design to equipment <span class="text-primary-cyan">alignment</span></h3>
+                        <p class="text-secondary-dark2 text-sm leading-relaxed">HVAC design engineering that connects system design, equipment selection, ductwork, ventilation systems, and project requirements.</p>
+                    </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="col-span-12 lg:col-span-4 bg-primary-white p-10 pt-12 rounded-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-transform hover:-translate-y-2 relative scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-400">
-                    <img src="assets/What Sets Us Apart Section/Icon Frame-2.png" alt="Ecological practices" class="w-16 h-16 absolute -top-8 left-10">
-                    <h3 class="mb-4 text-primary-black">Ecological<br><span class="text-primary-cyan">practices</span></h3>
-                    <p class="text-secondary-dark2 text-sm">Sustainability isn't an afterthought. It's built into the foundation of everything we create.</p>
+                <div class="col-span-12 lg:col-span-4 bg-primary-white p-10 rounded-[40px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-transform hover:-translate-y-2 flex flex-col md:flex-row lg:flex-col justify-between md:items-center lg:items-stretch scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-400">
+                    <img src="assets/What Sets Us Apart Section/Icon Frame-2.png?v=2" alt="Lower execution risk" class="w-[72px] h-[72px] flex-shrink-0 mb-8 md:mb-0 md:mr-10 lg:mr-0 lg:mb-8">
+                    <div class="mt-auto md:mt-0 lg:mt-auto flex-1 flex flex-col justify-end">
+                        <h3 class="mb-4 text-primary-black">Lower execution <span class="text-primary-cyan">risk</span></h3>
+                        <p class="text-secondary-dark2 text-sm leading-relaxed">Reduce rework, hidden costs, and performance issues with HVAC engineering built around compliance, constructability, and system performance.</p>
+                    </div>
                 </div>
             </div>
 
             <a href="#" class="btn-yellow mt-16">
-                Explore
+                Explore our HVAC engineering services
             </a>
         </div>
     </section>
 
     <!-- We define the vision Section -->
-    <section class="relative py-[100px] lg:px-[80px] bg-gradient-to-b from-primary-white to-[#FFFFFF]">
+    <section class="relative py-[100px] lg:px-[80px] bg-gradient-to-b from-primary-white to-primary-pure-white">
         <!-- Top Gradient Border -->
         <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent"></div>
         <!-- Bottom Gradient Border -->
         <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent"></div>
 
         <div class="max-w-[1280px] px-[20px] w-full mx-auto text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-medium text-primary-black mb-6 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
-                We define <span class="text-primary-cyan">the vision</span>
+            <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                A structured HVAC engineering process from <span class="text-primary-cyan">early definition to execution</span>
             </h2>
-            <p class="text-primary-black max-w-2xl mx-auto mb-8 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
-                From concept to completion, we follow a disciplined approach that keeps sustainability at the center. Collaboration drives every decision.
+            <p class="text-primary-black max-w-3xl mx-auto mb-8 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
+                We help define critical HVAC systems through technical review, design development, documentation, and coordination with project stakeholders.
             </p>
             <a href="#" class="btn-cyan">
-                Discover
+                See how our process works
             </a>
         </div>
 
         <div class="max-w-[1280px] px-[20px] w-full mx-auto">
             <div class="bg-secondary-dark2 rounded-[40px] overflow-hidden shadow-xl scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
                 <!-- Tabs -->
-                <div class="flex justify-center space-x-8 border-b border-white/10 pt-8 px-8">
-                    <button class="text-primary-yellow relative pb-4 text-sm font-medium">
-                        Strategy phase
-                        <div class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-gradient-to-r from-primary-yellow to-primary-cyan"></div>
+                <div class="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 border-b border-white/10 pt-8 px-8">
+                    <button id="tab-btn-1" onclick="openTab(1)" class="text-primary-yellow relative pb-4 text-sm font-medium transition-colors">
+                        Technical discovery
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-gradient-to-r from-primary-yellow to-primary-cyan transition-all"></div>
                     </button>
-                    <button class="text-primary-white hover:text-primary-yellow transition-colors pb-4 text-sm font-medium">Design phase</button>
-                    <button class="text-primary-white hover:text-primary-yellow transition-colors pb-4 text-sm font-medium">Execution phase</button>
+                    <button id="tab-btn-2" onclick="openTab(2)" class="text-primary-white hover:text-primary-yellow relative pb-4 text-sm font-medium transition-colors">
+                        HVAC design & documentation
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-0 transition-all"></div>
+                    </button>
+                    <button id="tab-btn-3" onclick="openTab(3)" class="text-primary-white hover:text-primary-yellow relative pb-4 text-sm font-medium transition-colors">
+                        Project coordination
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-0 transition-all"></div>
+                    </button>
                 </div>
 
                 <!-- Tab Content -->
-                <div class="flex flex-col lg:flex-row items-center justify-between lg:px-[64px] lg:py-[60px]">
-                    <div class="w-full lg:w-[400px] p-[40px] lg:p-0 space-y-6 text-left">
-                        <h3 class="text-4xl font-medium text-primary-white">
-                            We create <span class="text-primary-cyan">with<br>purpose</span>
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            We sit with you and map out the terrain. What are the goals? What are the constraints? What does success look like? We ask the hard questions first.
-                        </p>
-                        <a href="#" class="btn-yellow mt-4">
-                            Review
-                        </a>
+                <div class="flex flex-col lg:flex-row items-center justify-between lg:gap-10 xl:gap-0 lg:px-[40px] xl:px-[64px] lg:py-[60px]">
+                    <div class="w-full lg:w-1/2 xl:w-[480px] p-[40px] lg:p-0 relative">
+                        <!-- Tab 1 -->
+                        <div id="tab-content-1" class="space-y-6 text-left transition-opacity duration-300">
+                            <h3 class="text-3xl md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
+                                Start with the right HVAC requirements <span class="text-primary-cyan">before design begins</span>
+                            </h3>
+                            <p class="text-gray-400 text-sm md:text-[15px] leading-relaxed">
+                                We review project goals, existing conditions, heating systems, ventilation needs, air quality requirements, load calculations, building codes, and operational constraints to define the right engineering path.
+                            </p>
+                            <a href="#" class="inline-flex items-center justify-center font-medium bg-gradient-to-r from-primary-yellow to-primary-cyan text-primary-black px-[30px] py-[15px] rounded-full hover:opacity-90 transition-opacity mt-4 text-[15px]">
+                                Request a technical review
+                            </a>
+                        </div>
+                        
+                        <!-- Tab 2 -->
+                        <div id="tab-content-2" class="space-y-6 text-left hidden transition-opacity duration-300">
+                            <h3 class="text-3xl md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
+                                Develop HVAC design engineering with clear <span class="text-primary-cyan">technical documentation</span>
+                            </h3>
+                            <p class="text-gray-400 text-sm md:text-[15px] leading-relaxed">
+                                Our team supports HVAC design, air conditioning systems, ductwork, air distribution, refrigeration considerations, equipment layouts, design standards, and engineering documentation for commercial and large industrial environments.
+                            </p>
+                            <a href="#" class="inline-flex items-center justify-center font-medium bg-gradient-to-r from-primary-yellow to-primary-cyan text-primary-black px-[30px] py-[15px] rounded-full hover:opacity-90 transition-opacity mt-4 text-[15px]">
+                                View HVAC design services
+                            </a>
+                        </div>
+
+                        <!-- Tab 3 -->
+                        <div id="tab-content-3" class="space-y-6 text-left hidden transition-opacity duration-300">
+                            <h3 class="text-3xl md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
+                                Coordinate engineering decisions with <span class="text-primary-cyan">project execution</span>
+                            </h3>
+                            <p class="text-gray-400 text-sm md:text-[15px] leading-relaxed">
+                                We help align HVAC systems, MEP coordination, equipment selection, energy efficiency, system performance, and project milestones so technical decisions remain practical and buildable.
+                            </p>
+                            <a href="#" class="inline-flex items-center justify-center font-medium bg-gradient-to-r from-primary-yellow to-primary-cyan text-primary-black px-[30px] py-[15px] rounded-full hover:opacity-90 transition-opacity mt-4 text-[15px]">
+                                Learn about MEP
+                            </a>
+                        </div>
                     </div>
                     
-                    <div class="w-full lg:w-[610px] flex-shrink-0">
-                        <img src="assets/Strategy-Phase-Img.png" alt="Strategy Blueprint" class="w-full h-auto block">
+                    <div class="w-full lg:w-1/2 xl:w-[610px] px-[20px] pb-[40px] lg:px-0 lg:pb-0">
+                        <img src="assets/Strategy-Phase-Img.png" alt="HVAC Blueprint Strategy" class="w-full h-auto block rounded-[20px] xl:rounded-none">
                     </div>
                 </div>
             </div>
         </div>
+
+        <script>
+            function openTab(tabIndex) {
+                // Hide all contents
+                document.getElementById('tab-content-1').classList.add('hidden');
+                document.getElementById('tab-content-2').classList.add('hidden');
+                document.getElementById('tab-content-3').classList.add('hidden');
+
+                // Show selected content
+                document.getElementById('tab-content-' + tabIndex).classList.remove('hidden');
+
+                // Reset all buttons
+                for (let i = 1; i <= 3; i++) {
+                    const btn = document.getElementById('tab-btn-' + i);
+                    btn.classList.remove('text-primary-yellow');
+                    btn.classList.add('text-primary-white');
+                    btn.querySelector('div').classList.add('opacity-0');
+                }
+
+                // Activate selected button
+                const activeBtn = document.getElementById('tab-btn-' + tabIndex);
+                activeBtn.classList.remove('text-primary-white');
+                activeBtn.classList.add('text-primary-yellow');
+                activeBtn.querySelector('div').classList.remove('opacity-0');
+            }
+        </script>
     </section>
     <!-- Clients Speak Section -->
-    <section class="py-[100px] lg:px-[80px] bg-[#FFFFFF]">
+    <section class="py-[100px] lg:px-[80px] bg-primary-pure-white">
         <div class="max-w-[1280px] px-[20px] w-full mx-auto">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                 <div class="scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
-                    <h2 class="text-4xl md:text-5xl font-medium text-primary-black mb-4">
+                    <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4">
                         Clients <span class="text-primary-cyan">speak</span>
                     </h2>
                     <p class="text-secondary-dark2">What our partners say about working with us</p>
@@ -260,8 +363,10 @@
                 <div id="testimonial-track" class="flex flex-col lg:flex-row lg:flex-nowrap gap-5 transition-transform duration-500 ease-in-out">
                     <!-- Testimonial 1 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 items-start relative z-10">
-                            <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="flex-shrink-0">
+                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                            <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
+                                <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
+                            </div>
                             <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
                                 They understood what we needed before we fully understood it ourselves. The results exceeded every expectation.
                             </p>
@@ -277,8 +382,10 @@
 
                     <!-- Testimonial 2 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 items-start relative z-10">
-                            <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="flex-shrink-0">
+                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                            <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
+                                <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
+                            </div>
                             <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
                                 Airexsus delivered a solution that was both beautiful and functional. The sustainability measures they integrated saved us money from day one.
                             </p>
@@ -294,8 +401,10 @@
 
                     <!-- Testimonial 3 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 items-start relative z-10">
-                            <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="flex-shrink-0">
+                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                            <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
+                                <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
+                            </div>
                             <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
                                 They understood what we needed before we fully understood it ourselves. The results exceeded every expectation.
                             </p>
@@ -311,8 +420,10 @@
 
                     <!-- Testimonial 4 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 items-start relative z-10">
-                            <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="flex-shrink-0">
+                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                            <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
+                                <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
+                            </div>
                             <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
                                 Airexsus delivered a solution that was both beautiful and functional. The sustainability measures they integrated saved us money from day one.
                             </p>
@@ -346,21 +457,21 @@
         <div class="absolute inset-0 pointer-events-none flex justify-center items-end z-10 overflow-hidden">
             <div class="hidden md:flex w-full max-w-[1280px] h-full relative justify-end lg:justify-center items-end px-[20px]">
                 <!-- Man Image -->
-                <img src="assets/Build-On-Man-Img.png" alt="Build On Professional" class="mr-[80px] lg:mr-[-300px] xl:mr-[-60px] max-h-[75%] lg:max-h-[95%] w-auto object-contain object-bottom scroll-animate opacity-0 translate-y-[100px] transition-all duration-1000 ease-out delay-300">
+                <img src="assets/Build-On-Man-Img.png" alt="Build On Professional" class="mr-[-20px] lg:mr-[-400px] xl:mr-[-160px] max-h-[75%] lg:max-h-[95%] w-auto object-contain object-bottom scroll-animate opacity-0 translate-y-[100px] transition-all duration-1000 ease-out delay-300">
             </div>
         </div>
 
         <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-20">
             <!-- Text Content -->
             <div class="w-full md:w-[55%] lg:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-[30px] scroll-animate opacity-0 -translate-x-[100px] transition-all duration-1000 ease-out py-[20px] md:py-[40px]">
-                <h2 class="text-4xl md:text-5xl font-medium">
-                    Built on <span class="text-gradient-yellow-cyan">experience<br>and conviction</span>
+                <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance]">
+                    A technical guide for high-stakes <span class="text-gradient-yellow-cyan">HVAC engineering decisions</span>
                 </h2>
                 <p class="text-gray-300 text-[16px] md:text-[18px] leading-relaxed max-w-lg">
-                    Airexsus exists because we believe design and engineering should serve both people and the planet. We've spent years refining our approach, learning what works and what doesn't. Today, we bring that hard-won knowledge to every project.
+                    Airexs US helps project leaders, mechanical engineers, architects, and industrial teams define HVAC projects with greater clarity. Our role is to support better decisions, reduce execution risk, and connect engineering with real project needs.
                 </p>
                 <a href="#" class="btn-gradient mt-4 pointer-events-auto">
-                    Learn More
+                    Contact us
                 </a>
             </div>
             
@@ -379,11 +490,11 @@
             <div class="col-span-12 lg:col-span-4 flex flex-col md:flex-row lg:flex-col gap-10 md:items-center lg:items-start">
                 
                 <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out text-center md:text-left md:w-1/2 lg:w-full">
-                    <h2 class="text-4xl md:text-5xl font-medium text-primary-black mb-6">
-                        The <span class="text-primary-cyan">team</span>
+                    <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6">
+                        Meet the technical profiles behind every <span class="text-primary-cyan">HVAC engineering decision</span>
                     </h2>
                     <p class="text-secondary-dark2 text-[16px] md:text-[18px]">
-                        Architects, engineers, and<br class="hidden md:block">designers who care about the work.
+                        Our work brings together engineering, design, documentation, and project coordination expertise.
                     </p>
                 </div>
 
@@ -396,7 +507,7 @@
                         Join us if you believe design matters and the planet matters more.
                     </p>
                     <a href="#" class="bg-white text-primary-black font-semibold text-[14px] px-[24px] py-[12px] rounded-[10px] border border-gray-200 hover:bg-gray-50 transition-colors">
-                        Open positions
+                        Contact us
                     </a>
                 </div>
             </div>
@@ -405,7 +516,7 @@
             <div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Card 1 -->
-                <div class="w-full bg-[#FFFFFF] rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200 hover:-translate-y-2">
+                <div class="w-full bg-primary-pure-white rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200 hover:-translate-y-2">
                     <div class="flex items-center gap-6 mb-6">
                         <img src="assets/Team Section Imgs/img.png" alt="Sofia Mendez" class="w-[80px] h-[80px] rounded-[24px] object-cover">
                         <div>
@@ -416,15 +527,13 @@
                     <p class="text-gray-600 text-[15px] leading-[160%] mb-8">
                         Twenty years designing buildings that stand the test of time and weather.
                     </p>
-                    <div class="flex justify-end gap-3 mt-auto relative z-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/LinkedIn.svg" alt="LinkedIn" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/X.svg" alt="X" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/Dribble.svg" alt="Dribbble" class="w-5 h-5"></a>
+                    <div class="flex justify-end mt-auto relative z-10">
+                        <a href="mailto:sofia.mendez@airexus.com" class="text-primary-black text-[12px] font-semibold hover:text-primary-cyan transition-colors">sofia.mendez@airexus.com</a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="w-full bg-[#FFFFFF] rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300 hover:-translate-y-2">
+                <div class="w-full bg-primary-pure-white rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300 hover:-translate-y-2">
                     <div class="flex items-center gap-6 mb-6">
                         <img src="assets/Team Section Imgs/img-1.png" alt="David Park" class="w-[80px] h-[80px] rounded-[24px] object-cover">
                         <div>
@@ -435,15 +544,13 @@
                     <p class="text-gray-600 text-[15px] leading-[160%] mb-8">
                         Structural systems and sustainable materials are his language and his passion.
                     </p>
-                    <div class="flex justify-end gap-3 mt-auto relative z-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/LinkedIn.svg" alt="LinkedIn" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/X.svg" alt="X" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/Dribble.svg" alt="Dribbble" class="w-5 h-5"></a>
+                    <div class="flex justify-end mt-auto relative z-10">
+                        <a href="mailto:david.park@airexus.com" class="text-primary-black text-[12px] font-semibold hover:text-primary-cyan transition-colors">david.park@airexus.com</a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="w-full bg-[#FFFFFF] rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 hover:-translate-y-2">
+                <div class="w-full bg-primary-pure-white rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 hover:-translate-y-2">
                     <div class="flex items-center gap-6 mb-6">
                         <img src="assets/Team Section Imgs/img-2.png" alt="Isabella Rossi" class="w-[80px] h-[80px] rounded-[24px] object-cover">
                         <div>
@@ -454,15 +561,13 @@
                     <p class="text-gray-600 text-[15px] leading-[160%] mb-8">
                         She sees the intersection where beauty meets function and builds from there.
                     </p>
-                    <div class="flex justify-end gap-3 mt-auto relative z-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/LinkedIn.svg" alt="LinkedIn" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/X.svg" alt="X" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/Dribble.svg" alt="Dribbble" class="w-5 h-5"></a>
+                    <div class="flex justify-end mt-auto relative z-10">
+                        <a href="mailto:isabella.rossi@airexus.com" class="text-primary-black text-[12px] font-semibold hover:text-primary-cyan transition-colors">isabella.rossi@airexus.com</a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="w-full bg-[#FFFFFF] rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200 hover:-translate-y-2">
+                <div class="w-full bg-primary-pure-white rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200 hover:-translate-y-2">
                     <div class="flex items-center gap-6 mb-6">
                         <img src="assets/Team Section Imgs/img-3.png" alt="Thomas Weber" class="w-[80px] h-[80px] rounded-[24px] object-cover">
                         <div>
@@ -473,15 +578,13 @@
                     <p class="text-gray-600 text-[15px] leading-[160%] mb-8">
                         Climate control systems that work hard and waste nothing. That's his domain.
                     </p>
-                    <div class="flex justify-end gap-3 mt-auto relative z-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/LinkedIn.svg" alt="LinkedIn" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/X.svg" alt="X" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/Dribble.svg" alt="Dribbble" class="w-5 h-5"></a>
+                    <div class="flex justify-end mt-auto relative z-10">
+                        <a href="mailto:thomas.weber@airexus.com" class="text-primary-black text-[12px] font-semibold hover:text-primary-cyan transition-colors">thomas.weber@airexus.com</a>
                     </div>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="w-full bg-[#FFFFFF] rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300 hover:-translate-y-2">
+                <div class="w-full bg-primary-pure-white rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300 hover:-translate-y-2">
                     <div class="flex items-center gap-6 mb-6">
                         <img src="assets/Team Section Imgs/img-4.png" alt="Amara Okonkwo" class="w-[80px] h-[80px] rounded-[24px] object-cover">
                         <div>
@@ -492,15 +595,13 @@
                     <p class="text-gray-600 text-[15px] leading-[160%] mb-8">
                         She keeps the vision alive from first sketch through final inspection and beyond.
                     </p>
-                    <div class="flex justify-end gap-3 mt-auto relative z-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/LinkedIn.svg" alt="LinkedIn" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/X.svg" alt="X" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/Dribble.svg" alt="Dribbble" class="w-5 h-5"></a>
+                    <div class="flex justify-end mt-auto relative z-10">
+                        <a href="mailto:amara.okonkwo@airexus.com" class="text-primary-black text-[12px] font-semibold hover:text-primary-cyan transition-colors">amara.okonkwo@airexus.com</a>
                     </div>
                 </div>
 
                 <!-- Card 6 -->
-                <div class="w-full bg-[#FFFFFF] rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 hover:-translate-y-2">
+                <div class="w-full bg-primary-pure-white rounded-[40px] p-[40px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan shadow-[0_4px_20px_rgba(0,0,0,0.03)] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 hover:-translate-y-2">
                     <div class="flex items-center gap-6 mb-6">
                         <img src="assets/Team Section Imgs/img-5.png" alt="Lucas Fernandes" class="w-[80px] h-[80px] rounded-[24px] object-cover">
                         <div>
@@ -511,10 +612,8 @@
                     <p class="text-gray-600 text-[15px] leading-[160%] mb-8">
                         Every material choice, every system, every decision passes through his careful eye.
                     </p>
-                    <div class="flex justify-end gap-3 mt-auto relative z-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/LinkedIn.svg" alt="LinkedIn" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/X.svg" alt="X" class="w-5 h-5"></a>
-                        <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Team Section Imgs/Dribble.svg" alt="Dribbble" class="w-5 h-5"></a>
+                    <div class="flex justify-end mt-auto relative z-10">
+                        <a href="mailto:lucas.fernandes@airexus.com" class="text-primary-black text-[12px] font-semibold hover:text-primary-cyan transition-colors">lucas.fernandes@airexus.com</a>
                     </div>
                 </div>
 
@@ -523,7 +622,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-[#FFFFFF]">
+    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
         <!-- Top Gradient Border -->
         <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent"></div>
         <!-- Bottom Gradient Border -->
@@ -532,97 +631,77 @@
         <div class="max-w-[1280px] px-[20px] w-full mx-auto">
             <!-- Header -->
             <div class="flex flex-col items-center mb-[60px] text-center scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
-                <h2 class="text-4xl md:text-5xl font-medium text-primary-black mb-4">
-                    <span class="text-primary-cyan">Projects</span> that prove the point
+                <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4">
+                    <span class="text-primary-cyan">HVAC engineering applied</span> to commercial and industrial projects
                 </h2>
                 <p class="text-secondary-dark2 text-[16px] md:text-[18px] max-w-[800px]">
-                    Real solutions built for real problems. Sustainable. Functional. Built to last.
+                    Explore how technical clarity, HVAC design, ventilation planning, and system documentation support better project outcomes.
                 </p>
             </div>
 
-            <!-- Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                <!-- Card 1 -->
-                <div class="w-full max-w-[400px] md:max-w-[800px] lg:max-w-[400px] h-auto lg:h-[640px] mx-auto bg-[#31353F] rounded-[40px] p-[40px] flex flex-col md:flex-row lg:flex-col md:items-center lg:items-stretch scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 hover:-translate-y-2">
-                    <img src="assets/Project-Img-1.png" alt="Riverside office complex" class="w-full md:w-[45%] lg:w-full aspect-[4/3] flex-shrink-0 object-cover rounded-[20px] mb-6 md:mb-0 md:mr-8 lg:mr-0 lg:mb-6">
-                    <div class="flex flex-col flex-1 lg:h-full w-full">
-                        <h4 class="text-[24px] font-semibold mb-4 leading-tight text-gradient-yellow-cyan">Riverside office complex</h4>
-                        <p class="text-white text-opacity-80 text-[15px] leading-[160%]">
-                            A five-story commercial space designed around natural light and water efficiency.
+            <!-- Carousel -->
+            <div class="relative w-full overflow-hidden">
+                <div id="projects-carousel" class="flex gap-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                    
+                    <!-- Card 1 -->
+                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
+                        <img src="assets/Project-Img-1.png" alt="HVAC Modernization" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
+                        <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">HVAC Modernization</span> <span class="text-primary-cyan">for Residential Condominium - Acapulco</span></h4>
+                        <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
+                            Comprehensive rehabilitation of the air conditioning system following damage caused by Hurricane Otis. The project included 28 chillers, a chilled water pumping system, and more than 600 fan coil units, improving energy efficiency, reliability, and corrosion resistance in a coastal environment.
                         </p>
-                        <div class="mt-8 lg:mt-auto">
-                            <div class="flex flex-wrap gap-2 mb-[20px]">
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Commercial</span>
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Sustainable</span>
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">HVAC Design</span>
-                            </div>
-                            <a href="#" class="flex items-center text-white text-[15px] font-medium hover:text-primary-yellow transition-colors group w-max">
-                                View project
-                                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
+
+                    <!-- Card 2 -->
+                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                        <img src="assets/Project-Img-2.png" alt="Controlled Cleanroom Facility" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
+                        <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Controlled Cleanroom</span> <span class="text-primary-cyan">Facility - Guadalajara</span></h4>
+                        <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
+                            Design and implementation of a complete HVAC solution for a 1,440 m² controlled environment facility. The system provides precise temperature, humidity, and air renewal control through air handling units, chilled water equipment, and SCADA-based automation.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300">
+                        <img src="assets/Project-Img-3.png" alt="Industrial Ventilation" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
+                        <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Industrial Ventilation</span> <span class="text-primary-cyan">for Poultry Processing Plant</span></h4>
+                        <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
+                            Design of mechanical ventilation and exhaust systems for critical production areas within a poultry processing facility. The solution supports sanitary control, worker safety, and compliance with the requirements necessary for federal TIF certification.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-400">
+                        <img src="assets/Project-Img-1.png" alt="Carnot Project" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
+                        <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Carnot Project -</span> <span class="text-primary-cyan">Pharmaceutical Manufacturing Facility</span></h4>
+                        <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
+                            Installation of HVAC and environmental control systems for laboratories, production areas, warehouses, and administrative spaces. The project was developed to meet strict pharmaceutical standards and regulatory requirements while ensuring controlled environmental conditions.
+                        </p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-500">
+                        <img src="assets/Project-Img-2.png" alt="Control Center" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
+                        <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Control Center -</span> <span class="text-primary-cyan">Olmeca Refinery, Dos Bocas</span></h4>
+                        <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
+                            Engineering and deployment of a redundant chilled water HVAC system for the main control center of one of Mexico's most strategic energy facilities. The solution delivers precise climate control, exceptional reliability, and uninterrupted operation for mission-critical systems.
+                        </p>
+                    </div>
+
                 </div>
 
-                <!-- Card 2 -->
-                <div class="w-full max-w-[400px] md:max-w-[800px] lg:max-w-[400px] h-auto lg:h-[640px] mx-auto bg-[#31353F] rounded-[40px] p-[40px] flex flex-col md:flex-row lg:flex-col md:items-center lg:items-stretch scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200 hover:-translate-y-2">
-                    <img src="assets/Project-Img-2.png" alt="Northgate residential tower" class="w-full md:w-[45%] lg:w-full aspect-[4/3] flex-shrink-0 object-cover rounded-[20px] mb-6 md:mb-0 md:mr-8 lg:mr-0 lg:mb-6">
-                    <div class="flex flex-col flex-1 lg:h-full w-full">
-                        <h4 class="text-[24px] font-semibold mb-4 leading-tight text-gradient-yellow-cyan">Northgate residential tower</h4>
-                        <p class="text-white text-opacity-80 text-[15px] leading-[160%]">
-                            Mixed-use development integrating MEP systems for minimal environmental impact.
-                        </p>
-                        <div class="mt-8 lg:mt-auto">
-                            <div class="flex flex-wrap gap-2 mb-[20px]">
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Residential</span>
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">MEP engineering</span>
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Energy efficient</span>
-                            </div>
-                            <a href="#" class="flex items-center text-white text-[15px] font-medium hover:text-primary-yellow transition-colors group w-max">
-                                View project
-                                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                <!-- Navigation Controls -->
+                <div class="flex justify-center gap-4 mt-8 relative z-10">
+                    <button onclick="window.moveProjectsLeft()" class="w-[50px] h-[50px] rounded-full bg-primary-yellow flex items-center justify-center hover:opacity-90 transition-opacity focus:outline-none">
+                        <svg class="w-6 h-6 text-primary-black transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <button onclick="window.moveProjectsRight()" class="w-[50px] h-[50px] rounded-full bg-primary-yellow flex items-center justify-center hover:opacity-90 transition-opacity focus:outline-none">
+                        <svg class="w-6 h-6 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="w-full max-w-[400px] md:max-w-[800px] lg:max-w-[400px] h-auto lg:h-[640px] mx-auto bg-[#31353F] rounded-[40px] p-[40px] flex flex-col md:flex-row lg:flex-col md:items-center lg:items-stretch scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300 hover:-translate-y-2">
-                    <img src="assets/Project-Img-3.png" alt="Harbor district renovation" class="w-full md:w-[45%] lg:w-full aspect-[4/3] flex-shrink-0 object-cover rounded-[20px] mb-6 md:mb-0 md:mr-8 lg:mr-0 lg:mb-6">
-                    <div class="flex flex-col flex-1 lg:h-full w-full">
-                        <h4 class="text-[24px] font-semibold mb-4 leading-tight text-gradient-yellow-cyan">Harbor district renovation</h4>
-                        <p class="text-white text-opacity-80 text-[15px] leading-[160%]">
-                            Historic building modernized with contemporary systems and ecological responsibility.
-                        </p>
-                        <div class="mt-8 lg:mt-auto">
-                            <div class="flex flex-wrap gap-2 mb-[20px]">
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Renovation</span>
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Historic</span>
-                                <span class="bg-primary-cyan text-white text-[12px] font-medium px-3 py-1 rounded-[6px]">Integrated systems</span>
-                            </div>
-                            <a href="#" class="flex items-center text-white text-[15px] font-medium hover:text-primary-yellow transition-colors group w-max">
-                                View project
-                                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <!-- View All Button -->
-            <div class="flex justify-center mt-[60px] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-400">
-                <a href="#" class="bg-primary-yellow text-primary-black font-semibold text-[16px] px-[32px] py-[16px] rounded-[10px] hover:opacity-90 transition-opacity shadow-[0_4px_15px_rgba(255,222,0,0.3)]">
-                    View all
-                </a>
-            </div>
+
 
         </div>
     </section>
@@ -634,11 +713,11 @@
                 
                 <!-- Left Content -->
                 <div class="w-full lg:w-[45%] flex flex-col items-center lg:items-start text-center lg:text-left scroll-animate opacity-0 translate-x-[-50px] transition-all duration-1000 ease-out">
-                    <h2 class="mb-6">
-                        <span class="text-primary-cyan">Stay informed</span> on<br class="hidden lg:block">design trends
+                    <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6">
+                        <span class="text-primary-cyan">Start your HVAC project with better</span> technical clarity
                     </h2>
                     <p class="text-secondary-dark2 text-[16px] md:text-[18px] max-w-[450px]">
-                        Get insights on sustainable architecture, engineering advances, and project stories.
+                        Tell us about your project and we'll help you define the next step.
                     </p>
                 </div>
 
@@ -657,7 +736,12 @@
                             <input type="tel" placeholder="Phone Number" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow">
                         </div>
                         
-                        <!-- Row 3 -->
+                        <!-- Row 3: Company -->
+                        <div class="flex flex-col">
+                            <input type="text" placeholder="Company" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow">
+                        </div>
+                        
+                        <!-- Row 4 -->
                         <textarea placeholder="Type your message..." rows="4" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow resize-none"></textarea>
                         
                         <!-- Checkbox -->
@@ -711,7 +795,7 @@
                     <div class="w-full bg-gradient-to-r from-primary-yellow to-primary-cyan rounded-[40px] p-[30px] md:p-[40px] flex flex-col sm:flex-row justify-between gap-6 md:gap-[20px] xl:gap-[40px] min-h-[220px]">
                         <!-- Left Column: Title -->
                         <div class="flex items-start">
-                            <h2 class="text-primary-black text-[40px] md:text-[48px] xl:text-[56px] font-medium leading-[1]">Reach</h2>
+                            <h2 class="text-primary-black text-[40px] md:text-[45px] xl:text-[56px] font-medium leading-[120%] [text-wrap:balance]">Reach</h2>
                         </div>
                         <!-- Right Column: Info & Socials -->
                         <div class="flex flex-col sm:justify-between items-start sm:items-end flex-1 w-full h-full">
@@ -933,5 +1017,55 @@
         }
     });
 </script>
+    <script>
+        function moveProjectsRight() {
+            const track = document.getElementById('projects-carousel');
+            if (!track) return;
+            const gap = 24; // 1.5rem
+            const cardWidth = track.firstElementChild.offsetWidth;
+            track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+        }
+        
+        function moveProjectsLeft() {
+            const track = document.getElementById('projects-carousel');
+            if (!track) return;
+            const gap = 24; // 1.5rem
+            const cardWidth = track.firstElementChild.offsetWidth;
+            track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileServicesBtn = document.getElementById('mobile-services-btn');
+            const mobileServicesMenu = document.getElementById('mobile-services-menu');
+            const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileBtn.querySelector('span');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.textContent = 'menu';
+                    } else {
+                        icon.textContent = 'close';
+                    }
+                });
+            }
+
+            if (mobileServicesBtn && mobileServicesMenu) {
+                mobileServicesBtn.addEventListener('click', () => {
+                    mobileServicesMenu.classList.toggle('hidden');
+                    mobileServicesMenu.classList.toggle('flex');
+                    if (mobileServicesMenu.classList.contains('hidden')) {
+                        mobileServicesIcon.style.transform = 'rotate(0deg)';
+                    } else {
+                        mobileServicesIcon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

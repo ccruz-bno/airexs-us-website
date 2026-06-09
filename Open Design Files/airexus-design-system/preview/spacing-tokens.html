@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview: Spacing & Radius</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { padding: 2rem; max-width: 800px; }
+    h2 { margin-top: 3rem; }
+    .row { display: flex; gap: 2rem; margin-bottom: 2rem; }
+    .box { background: var(--secondary-dark2); border: 1px solid var(--primary-cyan); }
+    .label { font-size: 0.875rem; font-family: monospace; color: var(--secondary-gray); margin-top: 0.5rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Spacing & Radius</h1>
+  
+  <h2>Border Radius Tokens</h2>
+  <div class="row">
+    <div>
+      <div class="box" style="width: 100px; height: 100px; border-radius: var(--radius-sm);"></div>
+      <div class="label">--radius-sm (4px)</div>
+    </div>
+    <div>
+      <div class="box" style="width: 100px; height: 100px; border-radius: var(--radius-md);"></div>
+      <div class="label">--radius-md (8px)</div>
+    </div>
+    <div>
+      <div class="box" style="width: 100px; height: 100px; border-radius: var(--radius-lg);"></div>
+      <div class="label">--radius-lg (12px)</div>
+    </div>
+    <div>
+      <div class="box" style="width: 100px; height: 100px; border-radius: var(--radius-full);"></div>
+      <div class="label">--radius-full</div>
+    </div>
+  </div>
+
+  <h2>Spacing System</h2>
+  <p>The system uses a standard 4px increment scale for layout spacing (0.25rem steps). Below are common gaps used in layouts:</p>
+  <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+    <div style="width: 1rem; height: 1rem; background: var(--primary-cyan);"></div>
+    <span class="label" style="margin: 0;">1rem (16px) - Default gap</span>
+  </div>
+  <div style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1rem;">
+    <div style="width: 1.5rem; height: 1.5rem; background: var(--primary-cyan);"></div>
+    <span class="label" style="margin: 0;">1.5rem (24px) - Element grouping</span>
+  </div>
+  <div style="display: flex; gap: 2rem; align-items: center; margin-bottom: 1rem;">
+    <div style="width: 2rem; height: 2rem; background: var(--primary-cyan);"></div>
+    <span class="label" style="margin: 0;">2rem (32px) - Section padding</span>
+  </div>
+</body>
+</html>

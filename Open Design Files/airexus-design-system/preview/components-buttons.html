@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview: Components</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { padding: 2rem; max-width: 800px; background-color: var(--primary-black); color: var(--primary-white); }
+    .card { background: var(--secondary-dark1); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--secondary-dark2); margin-bottom: 2rem; }
+    h2 { margin-top: 0; }
+    
+    .btn { padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); font-weight: var(--font-weight-semibold); border: none; cursor: pointer; transition: opacity 0.2s; font-family: var(--font-family-sans); font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; }
+    .btn:hover { opacity: 0.9; }
+    .btn-primary { background: var(--gradient-yellow-cyan); color: var(--primary-black); }
+    .btn-outline { background: transparent; border: 2px solid var(--primary-cyan); color: var(--primary-cyan); }
+    
+    .row { display: flex; gap: 1rem; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Components</h1>
+  
+  <div class="card">
+    <h2>Buttons</h2>
+    <div class="row">
+      <button class="btn btn-primary">Cotizar Proyecto</button>
+      <button class="btn btn-outline">Ver Portafolio</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Feature Card</h2>
+    <div style="background: var(--primary-white); color: var(--primary-black); border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--secondary-dark2);">
+      <div style="width: 48px; height: 48px; background: var(--primary-cyan); border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--primary-white);">❖</div>
+      <h3 style="font-size: 1.25rem; margin-bottom: 1rem; font-weight: var(--font-weight-semibold); margin-top: 0;">Eficiencia Energética</h3>
+      <p style="color: var(--secondary-slate); margin: 0; line-height: 1.5;">Sistemas optimizados para minimizar consumo de recursos, garantizando estándares internacionales de seguridad.</p>
+    </div>
+  </div>
+
+</body>
+</html>

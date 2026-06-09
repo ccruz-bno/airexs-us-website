@@ -6,7 +6,8 @@ tailwind.config = {
           yellow: '#FFE900',
           cyan: '#2B99D1',
           black: '#0C1115',
-          white: '#F1F1F1'
+          white: '#F1F1F1',
+          'pure-white': '#FFFFFF'
         },
         secondary: {
           dark1: '#21242B',

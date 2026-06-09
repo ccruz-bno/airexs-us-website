@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F1F1F1;
+    font-family: 'Poppins', sans-serif;
+    color: #0C1115;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+/* Custom Gradients */
+.bg-gradient-yellow-cyan {
+    background: linear-gradient(90deg, #FFE900 0%, #2B99D1 100%);
+}
+.text-gradient-yellow-cyan {
+    background: linear-gradient(90deg, #FFE900 0%, #2B99D1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero Background Responsive */
+.hero-bg {
+    background-image: url('../assets/hero imgs/Hero-BG-Mobile.png');
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 1024px) {
+    .hero-bg {
+        background-image: url('../assets/hero imgs/Hero-BG.png');
+    }
+}

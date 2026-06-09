@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview: Secondary Colors</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { background-color: var(--primary-black); color: var(--primary-white); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; padding: 2rem; }
+    .swatch { border-radius: 8px; overflow: hidden; border: 1px solid var(--secondary-dark2); }
+    .color { height: 120px; }
+    .label { padding: 1rem; background: var(--secondary-dark1); color: var(--primary-white); font-size: 0.875rem; font-weight: 500; }
+    .hex { display: block; font-family: monospace; color: var(--secondary-gray); font-size: 0.75rem; margin-top: 0.25rem; }
+    h1 { padding: 0 2rem; }
+  </style>
+</head>
+<body>
+  <h1>Secondary & Structural Colors</h1>
+  <div class="grid">
+    <div class="swatch">
+      <div class="color" style="background-color: var(--secondary-dark1)"></div>
+      <div class="label">Dark 1 <span class="hex">#21242B</span></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background-color: var(--secondary-dark2)"></div>
+      <div class="label">Dark 2 <span class="hex">#323641</span></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background-color: var(--secondary-gray)"></div>
+      <div class="label">Gray <span class="hex">#8C878D</span></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background-color: var(--secondary-slate)"></div>
+      <div class="label">Slate <span class="hex">#597174</span></div>
+    </div>
+  </div>
+</body>
+</html>
