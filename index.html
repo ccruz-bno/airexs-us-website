@@ -89,7 +89,7 @@
                             <div class="flex flex-col gap-2 w-max min-w-[240px]">
                                 <a href="#" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC design and drafting</a>
                                 <a href="#" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">MEP engineering support</a>
-                                <a href="#" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC engineering services</a>
+                                <a href="hvac-engineering-services.html" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC engineering services</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                     <div id="mobile-services-menu" class="hidden flex-col gap-3 pl-4 pt-4 pb-2">
                         <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC design and drafting</a>
                         <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">MEP engineering support</a>
-                        <a href="#" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC engineering services</a>
+                        <a href="hvac-engineering-services.html" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC engineering services</a>
                     </div>
                 </div>
                 
@@ -641,10 +641,10 @@
 
             <!-- Carousel -->
             <div class="relative w-full overflow-hidden">
-                <div id="projects-carousel" class="flex gap-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                <div id="projects-carousel" class="flex gap-6 pb-8" style="transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
                     
                     <!-- Card 1 -->
-                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
+                    <div class="projects-card w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
                         <img src="assets/Project-Img-1.png" alt="HVAC Modernization" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
                         <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">HVAC Modernization</span> <span class="text-primary-cyan">for Residential Condominium - Acapulco</span></h4>
                         <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
@@ -653,7 +653,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                    <div class="projects-card w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
                         <img src="assets/Project-Img-2.png" alt="Controlled Cleanroom Facility" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
                         <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Controlled Cleanroom</span> <span class="text-primary-cyan">Facility - Guadalajara</span></h4>
                         <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
@@ -662,7 +662,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300">
+                    <div class="projects-card w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300">
                         <img src="assets/Project-Img-3.png" alt="Industrial Ventilation" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
                         <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Industrial Ventilation</span> <span class="text-primary-cyan">for Poultry Processing Plant</span></h4>
                         <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
@@ -671,7 +671,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-400">
+                    <div class="projects-card w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-400">
                         <img src="assets/Project-Img-1.png" alt="Carnot Project" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
                         <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Carnot Project -</span> <span class="text-primary-cyan">Pharmaceutical Manufacturing Facility</span></h4>
                         <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
@@ -680,7 +680,7 @@
                     </div>
 
                     <!-- Card 5 -->
-                    <div class="snap-start w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-500">
+                    <div class="projects-card w-[100%] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-[#31353F] rounded-[40px] p-[30px] flex flex-col scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-500">
                         <img src="assets/Project-Img-2.png" alt="Control Center" class="w-full aspect-[4/3] object-cover rounded-[20px] mb-6">
                         <h4 class="text-[20px] font-semibold mb-4 leading-tight"><span class="text-primary-yellow">Control Center -</span> <span class="text-primary-cyan">Olmeca Refinery, Dos Bocas</span></h4>
                         <p class="text-white text-opacity-80 text-[14px] leading-[160%]">
@@ -692,10 +692,10 @@
 
                 <!-- Navigation Controls -->
                 <div class="flex justify-center gap-4 mt-8 relative z-10">
-                    <button onclick="window.moveProjectsLeft()" class="w-[50px] h-[50px] rounded-full bg-primary-yellow flex items-center justify-center hover:opacity-90 transition-opacity focus:outline-none">
+                    <button id="projects-prev-btn" class="w-[50px] h-[50px] rounded-full bg-primary-yellow flex items-center justify-center hover:opacity-90 transition-opacity focus:outline-none">
                         <svg class="w-6 h-6 text-primary-black transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
-                    <button onclick="window.moveProjectsRight()" class="w-[50px] h-[50px] rounded-full bg-primary-yellow flex items-center justify-center hover:opacity-90 transition-opacity focus:outline-none">
+                    <button id="projects-next-btn" class="w-[50px] h-[50px] rounded-full bg-primary-yellow flex items-center justify-center hover:opacity-90 transition-opacity focus:outline-none">
                         <svg class="w-6 h-6 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 </div>
@@ -826,7 +826,7 @@
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">MEP support</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
-                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                        <a href="hvac-engineering-services.html" class="group py-4 flex flex-col relative w-full">
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Engineering</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
@@ -1018,21 +1018,149 @@
     });
 </script>
     <script>
-        function moveProjectsRight() {
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const track = document.getElementById('projects-carousel');
-            if (!track) return;
-            const gap = 24; // 1.5rem
-            const cardWidth = track.firstElementChild.offsetWidth;
-            track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-        }
-        
-        function moveProjectsLeft() {
-            const track = document.getElementById('projects-carousel');
-            if (!track) return;
-            const gap = 24; // 1.5rem
-            const cardWidth = track.firstElementChild.offsetWidth;
-            track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-        }
+            const prevBtn = document.getElementById('projects-prev-btn');
+            const nextBtn = document.getElementById('projects-next-btn');
+            if (!track || !prevBtn || !nextBtn) return;
+
+            const GAP = 24;
+            const originalCards = Array.from(track.querySelectorAll('.projects-card'));
+            const totalOriginal = originalCards.length;
+            let isTransitioning = false;
+
+            // Clone all cards and append/prepend for infinite loop
+            // We clone the full set at the end AND the full set at the beginning
+            const clonesAfter = originalCards.map(function(card) {
+                const clone = card.cloneNode(true);
+                clone.classList.add('is-clone');
+                // Remove scroll-animate classes so clones are visible
+                clone.classList.remove('opacity-0', 'translate-y-[50px]', 'scroll-animate');
+                return clone;
+            });
+            const clonesBefore = originalCards.map(function(card) {
+                const clone = card.cloneNode(true);
+                clone.classList.add('is-clone');
+                clone.classList.remove('opacity-0', 'translate-y-[50px]', 'scroll-animate');
+                return clone;
+            });
+
+            // Append clones after
+            clonesAfter.forEach(function(clone) {
+                track.appendChild(clone);
+            });
+            // Prepend clones before (in reverse to maintain order)
+            clonesBefore.reverse().forEach(function(clone) {
+                track.insertBefore(clone, track.firstChild);
+            });
+
+            // All cards now: [clonesBefore(5)] [originals(5)] [clonesAfter(5)]
+            // We want to start at the first original card, which is at index = totalOriginal
+            let currentIndex = totalOriginal; // start at first original
+
+            function getCardWidth() {
+                const cards = track.querySelectorAll('.projects-card');
+                if (cards.length === 0) return 0;
+                return cards[0].offsetWidth;
+            }
+
+            function setPosition(animate) {
+                const cardWidth = getCardWidth();
+                const offset = -(currentIndex * (cardWidth + GAP));
+                if (animate) {
+                    track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                } else {
+                    track.style.transition = 'none';
+                }
+                track.style.transform = 'translateX(' + offset + 'px)';
+            }
+
+            // Initial position (no animation)
+            setPosition(false);
+
+            function moveNext() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex++;
+                setPosition(true);
+            }
+
+            function movePrev() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex--;
+                setPosition(true);
+            }
+
+            // After transition ends, check if we need to jump to the "real" position
+            track.addEventListener('transitionend', function() {
+                isTransitioning = false;
+                // If we've gone past the originals into the after-clones, jump back
+                if (currentIndex >= totalOriginal * 2) {
+                    currentIndex = currentIndex - totalOriginal;
+                    setPosition(false);
+                }
+                // If we've gone before the originals into the before-clones, jump forward
+                if (currentIndex < totalOriginal) {
+                    currentIndex = currentIndex + totalOriginal;
+                    setPosition(false);
+                }
+            });
+
+            nextBtn.addEventListener('click', moveNext);
+            prevBtn.addEventListener('click', movePrev);
+
+            // Also expose for backward compatibility
+            window.moveProjectsRight = moveNext;
+            window.moveProjectsLeft = movePrev;
+
+            // Recalculate on resize
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    setPosition(false);
+                }, 150);
+            });
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchDeltaX = 0;
+            let isSwiping = false;
+
+            track.addEventListener('touchstart', function(e) {
+                if (isTransitioning) return;
+                touchStartX = e.touches[0].clientX;
+                isSwiping = true;
+                track.style.transition = 'none';
+            }, { passive: true });
+
+            track.addEventListener('touchmove', function(e) {
+                if (!isSwiping) return;
+                touchDeltaX = e.touches[0].clientX - touchStartX;
+                const cardWidth = getCardWidth();
+                const baseOffset = -(currentIndex * (cardWidth + GAP));
+                track.style.transform = 'translateX(' + (baseOffset + touchDeltaX) + 'px)';
+            }, { passive: true });
+
+            track.addEventListener('touchend', function() {
+                if (!isSwiping) return;
+                isSwiping = false;
+                const cardWidth = getCardWidth();
+                const threshold = cardWidth * 0.2;
+                if (touchDeltaX < -threshold) {
+                    moveNext();
+                } else if (touchDeltaX > threshold) {
+                    movePrev();
+                } else {
+                    // Snap back
+                    setPosition(true);
+                }
+                touchDeltaX = 0;
+            });
+        });
+    })();
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
