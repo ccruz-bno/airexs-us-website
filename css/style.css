@@ -34,35 +34,50 @@ p, h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(90deg, #323641 0%, #2B99D1 100%);
 }
 
-/* Hero Background Responsive */
+/* Home Hero Title — slightly smaller to fit 3 lines */
+#home-hero-title {
+    font-size: 32px;
+}
+@media (min-width: 640px)  { #home-hero-title { font-size: 38px; } }
+@media (min-width: 768px)  { #home-hero-title { font-size: 40px; } }
+@media (min-width: 1280px) { #home-hero-title { font-size: 44px; } }
+
+/* Hero Background — gradient base (particles rendered via Canvas) */
 .hero-bg {
-    background-image: url('../assets/Hero Imgs/Hero-BG-Mobile.png');
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #0C1115 0%, #323641 100%);
 }
 
-@media (min-width: 1024px) {
-    .hero-bg {
-        background-image: url('../assets/Hero Imgs/Hero-BG.png');
-    }
-}
-
-/* About Us Hero Background — dot pattern + gradient */
 .about-hero-bg {
-    background-image: linear-gradient(to bottom, transparent 30%, #21242B 90%), url('../assets/Hero Imgs/Hero-BG-Mobile.png');
-    background-size: cover, 100% auto;
-    background-position: center, center top;
-    background-repeat: no-repeat, no-repeat;
-    background-color: #21242B;
+    background: linear-gradient(135deg, #0C1115 0%, #21242B 60%, #323641 100%);
 }
-@media (min-width: 1024px) {
-    .about-hero-bg {
-        background-image: url('../assets/Hero Imgs/Hero-BG.png'), linear-gradient(to right, #21242B, #0C1115);
-        background-size: cover, cover;
-        background-position: center, center;
-        background-repeat: no-repeat, no-repeat;
-    }
+
+/* Hero Particles Canvas */
+.hero-particles-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Gradient mask — darkens top-left (text area), fades to transparent at bottom-right (particles) */
+.hero-bg::before,
+.about-hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        135deg,
+        rgba(12, 17, 21, 0.98) 0%,
+        rgba(12, 17, 21, 0.96) 40%,
+        rgba(12, 17, 21, 0.80) 55%,
+        rgba(12, 17, 21, 0.40) 72%,
+        rgba(12, 17, 21, 0.10) 85%,
+        rgba(12, 17, 21, 0)    95%
+    );
 }
 
 
@@ -78,5 +93,68 @@ p, h1, h2, h3, h4, h5, h6 {
         background-image: url('../assets/About%20Us/Data-Grid-BG-img.png');
         background-position: left bottom;
     }
+}
+
+/* ─── Spotlight / Glow Card Effect ─── */
+[data-glow] {
+    position: relative;
+    /* NOTE: Do NOT add z-index here. Keeping z-index:auto means
+       the card doesn't create its own stacking context, so ::before
+       at z-index:-1 renders BELOW the card's own background paint. */
+}
+
+/* White glow ring — rendered behind the card's opaque background,
+   visible only in the strip that extends beyond the card edge. */
+[data-glow]::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    z-index: -1;
+    background: radial-gradient(
+        250px 250px at var(--glow-x, -500px) var(--glow-y, -500px),
+        #FFFFFF,
+        transparent
+    );
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+/* Gradient border lines — real CSS borders that follow border-radius,
+   masked with a horizontal gradient for transparent→cyan→transparent */
+[data-glow]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+    border-top: 3px solid #2B99D1;
+    border-bottom: 3px solid #2B99D1;
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, white 20%, white 80%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, white 20%, white 80%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+[data-glow]:hover::after {
+    opacity: 1;
+}
+
+/* Hover: subtle drop shadow (default: neutral) */
+[data-glow]:hover {
+    box-shadow: 0 20px 40px -6px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Yellow border variant (About Us cards) ── */
+[data-glow="yellow"]::after {
+    border-top-color: #FFE900;
+    border-bottom-color: #FFE900;
+}
+
+[data-glow="yellow"]:hover {
+    box-shadow: 0 20px 40px -6px rgba(43, 153, 209, 0.25);
 }
 

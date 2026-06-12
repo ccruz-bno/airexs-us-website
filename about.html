@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     
-                    <a href="#" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">FAQ</a>
+                    <a href="faq.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">FAQ</a>
                 </div>
 
                 <!-- Buttons -->
@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 
-                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">FAQ</a>
+                <a href="faq.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">FAQ</a>
                 
                 <div class="h-[1px] w-full bg-gray-700 my-2"></div>
                 
@@ -297,11 +297,11 @@
             <!-- Right Column: 2 Cards side by side (6 cols on lg) -->
             <div class="col-span-12 lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-[20px] scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
                 <!-- Card 1 -->
-                <div class="bg-primary-pure-white rounded-[20px] p-[40px] flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:h-[300px] xl:h-[387px] transition-transform hover:-translate-y-2">
-                    <div class="w-[60px] h-[60px] flex items-center justify-center flex-shrink-0">
+                <div data-glow="yellow" class="bg-primary-pure-white rounded-[20px] p-[40px] flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:h-[300px] xl:h-[387px] transition-all duration-300 ease-out hover:-translate-y-4">
+                    <div class="w-[60px] h-[60px] flex items-center justify-center flex-shrink-0 relative z-10">
                         <img src="assets/About Us/Technical-Details-Icon-1.svg" alt="Design engineering" class="w-[52px] h-[52px]">
                     </div>
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-4 relative z-10">
                         <h5 class="text-gradient-dark2-cyan [text-wrap:auto]">Design engineering connected to real project constraints</h5>
                         <p class="text-secondary-dark2 text-[13px] leading-[160%] [text-wrap:auto]">
                             Airexs US helps align HVAC system, equipment needs, facility requirements, and system design decisions.
@@ -309,11 +309,11 @@
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-primary-pure-white rounded-[20px] p-[40px] flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:h-[300px] xl:h-[387px] transition-transform hover:-translate-y-2">
-                    <div class="w-[60px] h-[60px] flex items-center justify-center flex-shrink-0">
+                <div data-glow="yellow" class="bg-primary-pure-white rounded-[20px] p-[40px] flex flex-col justify-between min-h-[300px] sm:min-h-[320px] lg:h-[300px] xl:h-[387px] transition-all duration-300 ease-out hover:-translate-y-4">
+                    <div class="w-[60px] h-[60px] flex items-center justify-center flex-shrink-0 relative z-10">
                         <img src="assets/About Us/Technical-Details-Icon-2.svg" alt="HVAC consulting" class="w-[52px] h-[52px]">
                     </div>
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-4 relative z-10">
                         <h5 class="text-gradient-dark2-cyan [text-wrap:auto]">Support from HVAC consulting engineers</h5>
                         <p class="text-secondary-dark2 text-[13px] leading-[160%] [text-wrap:auto]">
                             Our consulting engineers help clarify requirements, review risks, and guide better commercial HVAC decisions.
@@ -322,6 +322,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- Pointer-tracking script for glow cards -->
+        <script>
+            (function() {
+                var glowCards = document.querySelectorAll('[data-glow]');
+                document.addEventListener('pointermove', function(e) {
+                    glowCards.forEach(function(card) {
+                        var rect = card.getBoundingClientRect();
+                        card.style.setProperty('--glow-x', (e.clientX - rect.left + 4) + 'px');
+                        card.style.setProperty('--glow-y', (e.clientY - rect.top + 4) + 'px');
+                    });
+                });
+            })();
+        </script>
     </section>
 
     <!-- ========================== -->
@@ -504,7 +518,7 @@
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Contact</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
-                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                        <a href="faq.html" class="group py-4 flex flex-col relative w-full">
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">FAQ</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
@@ -627,5 +641,6 @@
         }
     });
 </script>
+    <script src="js/hero-particles.js"></script>
 </body>
 </html>
