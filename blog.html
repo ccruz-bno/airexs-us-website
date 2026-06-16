@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Engineering Insights for HVAC System Design, Industrial HVAC Design, and MEP Engineering</title>
+    <meta name="description" content="Explore HVAC engineering insights, HVAC design guide, commercial HVAC system design, and ductwork design for modern buildings.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            h1 { @apply font-medium text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] leading-[110%] tracking-[0px]; }
+            h2 { 
+                @apply font-medium text-[30px] md:text-[45px] tracking-[0px];
+                line-height: 120%;
+                text-wrap: balance;
+            }
+            h3 { 
+                @apply font-medium text-[24px] md:text-[38px] tracking-[0px];
+                line-height: 110%;
+                text-wrap: balance;
+            }
+            h4 { @apply font-medium text-[20px] md:text-[24px] leading-[120%] tracking-[0.2px]; }
+            h5 { @apply font-medium text-[16px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
+            h6 { @apply font-medium text-[16px] md:text-[18px] leading-[140%] tracking-[0.2px]; }
+            p { @apply font-normal text-[14px] md:text-[16px] leading-[160%] tracking-[0.2px]; }
+        }
+        @layer components {
+            .btn-cyan {
+                @apply bg-primary-cyan text-primary-pure-white hover:opacity-90 transition-all inline-flex items-center justify-center;
+            }
+            .btn-yellow {
+                @apply bg-primary-yellow text-primary-black hover:opacity-90 transition-all inline-flex items-center justify-center;
+            }
+            .btn-outline-yellow {
+                @apply border border-primary-yellow text-primary-yellow bg-transparent hover:bg-primary-yellow hover:text-primary-black transition-all inline-flex items-center justify-center;
+            }
+            .btn-gradient {
+                background: linear-gradient(135deg, #FFE900 0%, #2B99D1 50%, #FFE900 100%);
+                background-size: 200% auto;
+                background-position: 0% center;
+                @apply text-primary-black transition-all duration-500 inline-flex items-center justify-center;
+            }
+            .btn-gradient:hover {
+                background-position: 100% center;
+            }
+            .btn-cyan, .btn-yellow, .btn-outline-yellow, .btn-gradient {
+                @apply rounded-[10px] font-semibold text-[14px] leading-[28px] tracking-[0.2px] px-[20px] py-[10px];
+            }
+        }
+    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=1.4">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <!-- Blog-specific styles -->
+    <style>
+        /* Blog card carousel — overflow hidden, transform-driven */
+        .blog-carousel-viewport {
+            overflow: hidden;
+            position: relative;
+        }
+        .blog-carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blog-card {
+            flex-shrink: 0;
+        }
+        /* Mobile: 1 card visible */
+        @media (max-width: 639px) {
+            .blog-card { width: 100%; }
+        }
+        /* Tablet: 2 cards visible */
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .blog-card { width: calc(50% - 10px); }
+        }
+        /* Desktop: 3 cards visible */
+        @media (min-width: 1024px) {
+            .blog-card { width: calc(33.333% - 14px); }
+        }
+        /* Carousel navigation dots */
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2B99D1;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .carousel-dot.active {
+            background: linear-gradient(135deg, #FFE900, #2B99D1);
+            width: 32px;
+            border-radius: 5px;
+        }
+        /* Category filter dropdown */
+        .filter-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23ABABAB' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 20px;
+        }
+        /* Subscribe input focus glow */
+        .subscribe-input-wrapper:focus-within {
+            box-shadow: 0 0 20px rgba(43, 153, 209, 0.3);
+        }
+        /* Blog card hover image zoom */
+        .blog-card-img {
+            transition: transform 0.5s ease;
+        }
+        .blog-card:hover .blog-card-img {
+            transform: scale(1.05);
+        }
+        /* Carousel arrow buttons — matches Clients speak section */
+        .carousel-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: #FFE900;
+            color: #0C1115;
+        }
+        .carousel-arrow:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="bg-primary-white text-primary-black antialiased font-sans">
+    
+    <!-- Navbar -->
+    <nav class="bg-[#21242B] w-full h-20 flex items-center fixed top-0 z-50 lg:px-[80px]">
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/Logo-Nav.svg" alt="Airexs US" class="w-[200px] h-auto">
+            </a>
+
+            <!-- Hamburger Menu Icon -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-white hover:text-primary-yellow focus:outline-none transition-colors">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+
+            <!-- Menu + Buttons Group -->
+            <div class="hidden lg:flex items-center gap-[20px]">
+                <!-- Links -->
+                <div class="flex items-center gap-[20px] text-[16px] leading-[160%] tracking-[0.2px] font-normal text-primary-white">
+                    <a href="our-work.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">Our Work</a>
+                    
+                    <a href="about.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">About Us</a>
+                    
+                    <div class="relative group cursor-pointer">
+                        <div class="flex items-center border-b-2 border-transparent group-hover:border-primary-yellow group-hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">
+                            Services <span class="material-symbols-outlined text-[20px] ml-1 group-hover:text-primary-yellow transition-colors duration-200">expand_more</span>
+                        </div>
+                        
+                        <!-- Dropdown Menu Wrapper -->
+                        <div class="absolute left-1/2 -translate-x-1/2 top-[100%] pt-4 hidden group-hover:block z-50">
+                            <div class="flex flex-col gap-2 w-max min-w-[240px]">
+                                <a href="hvac-design-drafting.html" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC design and drafting</a>
+                                <a href="mep-engineering-support.html" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">MEP engineering support</a>
+                                <a href="hvac-engineering-services.html" class="bg-white text-primary-black font-semibold text-[14px] leading-[28px] tracking-[0.2px] py-[10px] px-[20px] rounded-[10px] text-center shadow-lg hover:bg-primary-yellow transition-colors">HVAC engineering services</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="faq.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">FAQ</a>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex items-center gap-[20px]">
+                    <a href="#" class="btn-cyan">Contact</a>
+                    <a href="blog.html" class="btn-outline-yellow border-b-2 border-primary-yellow text-primary-yellow">Blog</a>
+                </div>
+            </div>
+        </div>
+        <!-- Gradient Bottom Border -->
+        <div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-primary-yellow to-primary-cyan"></div>
+        
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-[80px] left-0 w-full bg-[#21242B] border-t border-gray-700 shadow-xl overflow-y-auto" style="max-height: calc(100vh - 80px);">
+            <div class="flex flex-col p-[20px] gap-5 text-primary-white">
+                <a href="our-work.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
+                <a href="about.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">About Us</a>
+                
+                <!-- Mobile Services Dropdown -->
+                <div class="flex flex-col">
+                    <button id="mobile-services-btn" class="flex items-center gap-2 text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1 text-left">
+                        Services
+                        <span id="mobile-services-icon" class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden flex-col gap-3 pl-4 pt-4 pb-2">
+                        <a href="hvac-design-drafting.html" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC design and drafting</a>
+                        <a href="mep-engineering-support.html" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">MEP engineering support</a>
+                        <a href="hvac-engineering-services.html" class="text-[16px] text-gray-300 w-max border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200">HVAC engineering services</a>
+                    </div>
+                </div>
+                
+                <a href="faq.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">FAQ</a>
+                
+                <div class="h-[1px] w-full bg-gray-700 my-2"></div>
+                
+                <a href="#" class="btn-cyan justify-center mb-2">Contact</a>
+                <a href="blog.html" class="btn-outline-yellow justify-center border-primary-yellow text-primary-yellow">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== -->
+    <!-- HERO SECTION         -->
+    <!-- ==================== -->
+    <section class="about-hero-bg relative pt-[120px] lg:pt-[180px] pb-[60px] lg:pb-[100px] lg:px-[80px] overflow-hidden">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-10 flex flex-col items-center text-center gap-[24px]">
+            <!-- Text Content -->
+            <div class="flex flex-col items-center gap-[20px] max-w-[800px] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                <h1 class="uppercase text-primary-white">
+                    HVAC engineering insights for <span class="text-gradient-yellow-cyan">commercial and industrial projects</span>
+                </h1>
+                
+                <p class="text-gray-300 max-w-[600px]" style="text-wrap: balance;">
+                    Technical articles on <strong class="text-primary-white">HVAC system design</strong> and <strong class="text-primary-white">MEP engineering</strong>.
+                </p>
+            </div>
+
+            <!-- Category Filter Dropdown -->
+            <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                <div class="relative p-[1px] rounded-[10px] bg-gradient-to-r from-primary-yellow to-primary-cyan inline-block">
+                    <select id="blog-filter" class="filter-select bg-primary-pure-white text-[#ABABAB] text-[14px] font-medium rounded-[9px] pl-[20px] pr-[48px] py-[12px] focus:outline-none cursor-pointer min-w-[200px]">
+                        <option value="all">All posts</option>
+                        <option value="design">Design</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="hvac-design">HVAC design</option>
+                        <option value="mep-engineering">MEP engineering</option>
+                        <option value="ductwork">Ductwork</option>
+                        <option value="industrial">Industrial HVAC</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================== -->
+    <!-- NEWEST ARTICLES SECTION          -->
+    <!-- =============================== -->
+    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-white">
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto">
+
+            <!-- 2 horizontal featured cards -->
+            <div class="flex flex-col gap-[24px]">
+
+                <!-- Featured Article 1 -->
+                <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                    <!-- Image -->
+                    <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
+                        <img src="assets/Blog/Blog-Featured-1.png" alt="HVAC engineer reviewing building system blueprints" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-[24px] lg:p-[40px] flex flex-col justify-center flex-1">
+                        <div class="flex items-center gap-[12px] mb-[16px]">
+                            <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">Design</span>
+                            <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                            <span class="text-secondary-gray text-[12px]">6 min read</span>
+                        </div>
+                        <h3 class="text-primary-black text-[22px] lg:text-[28px] font-semibold leading-[130%] mb-[12px] group-hover:text-primary-cyan transition-colors">Building efficient systems from the ground up</h3>
+                        <p class="text-secondary-dark2 text-[14px] lg:text-[15px] leading-[160%] mb-[20px] line-clamp-3">How proper HVAC design shapes modern buildings and reduces energy waste through innovative system layouts and advanced engineering practices.</p>
+                        <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </span>
+                    </div>
+                </a>
+                </div>
+
+                <!-- Featured Article 2 -->
+                <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                    <!-- Image -->
+                    <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
+                        <img src="assets/Blog/Blog-Featured-2.png" alt="MEP coordination team reviewing BIM model" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-[24px] lg:p-[40px] flex flex-col justify-center flex-1">
+                        <div class="flex items-center gap-[12px] mb-[16px]">
+                            <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">Engineering</span>
+                            <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                            <span class="text-secondary-gray text-[12px]">7 min read</span>
+                        </div>
+                        <h3 class="text-primary-black text-[22px] lg:text-[28px] font-semibold leading-[130%] mb-[12px] group-hover:text-primary-cyan transition-colors">MEP integration for smarter buildings</h3>
+                        <p class="text-secondary-dark2 text-[14px] lg:text-[15px] leading-[160%] mb-[20px] line-clamp-3">Coordinating mechanical, electrical, and plumbing systems requires precision and foresight to deliver high-performance building environments.</p>
+                        <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </span>
+                    </div>
+                </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =============================== -->
+    <!-- FEATURED ARTICLES SECTION       -->
+    <!-- =============================== -->
+    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
+        <!-- Top border: gradient-fade-cyan (transparent → cyan → transparent) -->
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent opacity-80"></div>
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto">
+
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-[16px] mb-[40px] lg:mb-[60px]">
+                <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                    <h2 class="text-primary-black">
+                        Featured <span class="text-primary-cyan">HVAC engineering</span> insights
+                    </h2>
+                    <p class="text-secondary-dark2 mt-[12px]">
+                        Explore recent posts on <strong>HVAC system design</strong>.
+                    </p>
+                </div>
+                <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200 flex-shrink-0">
+                    <a href="#" class="btn-cyan whitespace-nowrap">View all</a>
+                </div>
+            </div>
+
+            <!-- Blog Cards Carousel -->
+            <div class="relative scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
+
+                <!-- Carousel Viewport -->
+                <div id="blog-carousel-viewport" class="blog-carousel-viewport">
+                    <div id="blog-carousel-track" class="blog-carousel-track">
+
+                        <!-- Card 1 -->
+                        <a href="#" class="blog-card bg-primary-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 group transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] flex flex-col" data-glow>
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="assets/Blog/Blog-Img-1.png" alt="HVAC system design commercial building cross-section" class="blog-card-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-[20px] lg:p-[24px] flex flex-col flex-1">
+                                <div class="flex items-center gap-[12px] mb-[12px]">
+                                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">HVAC design</span>
+                                    <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                                    <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                                </div>
+                                <h5 class="text-primary-black mb-[10px] group-hover:text-primary-cyan transition-colors line-clamp-2">Optimizing commercial HVAC system layouts for energy efficiency</h5>
+                                <p class="text-secondary-dark2 text-[13px] leading-[160%] mb-[16px] line-clamp-3 flex-1">Learn how modern HVAC system design approaches reduce energy consumption while maintaining occupant comfort in commercial buildings.</p>
+                                <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Card 2 -->
+                        <a href="#" class="blog-card bg-primary-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 group transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] flex flex-col" data-glow>
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="assets/Blog/Blog-Img-2.png" alt="MEP coordination BIM model" class="blog-card-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-[20px] lg:p-[24px] flex flex-col flex-1">
+                                <div class="flex items-center gap-[12px] mb-[12px]">
+                                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">MEP engineering</span>
+                                    <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                                    <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                                </div>
+                                <h5 class="text-primary-black mb-[10px] group-hover:text-primary-cyan transition-colors line-clamp-2">How MEP coordination prevents costly design conflicts in large projects</h5>
+                                <p class="text-secondary-dark2 text-[13px] leading-[160%] mb-[16px] line-clamp-3 flex-1">Effective MEP coordination integrates mechanical, electrical, and plumbing systems early to avoid rework and schedule delays during construction.</p>
+                                <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="#" class="blog-card bg-primary-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 group transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] flex flex-col" data-glow>
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="assets/Blog/Blog-Img-3.png" alt="HVAC ductwork layout ceiling plenum" class="blog-card-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-[20px] lg:p-[24px] flex flex-col flex-1">
+                                <div class="flex items-center gap-[12px] mb-[12px]">
+                                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">Ductwork</span>
+                                    <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                                    <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                                </div>
+                                <h5 class="text-primary-black mb-[10px] group-hover:text-primary-cyan transition-colors line-clamp-2">Best practices for ductwork design in commercial ceiling plenums</h5>
+                                <p class="text-secondary-dark2 text-[13px] leading-[160%] mb-[16px] line-clamp-3 flex-1">Proper ductwork routing through ceiling plenums requires careful planning of duct sizes, transitions, and fire damper placement for code compliance.</p>
+                                <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="#" class="blog-card bg-primary-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 group transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] flex flex-col" data-glow>
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="assets/Blog/Blog-Img-4.png" alt="Industrial HVAC cooling systems data center" class="blog-card-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-[20px] lg:p-[24px] flex flex-col flex-1">
+                                <div class="flex items-center gap-[12px] mb-[12px]">
+                                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">Industrial HVAC</span>
+                                    <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                                    <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                                </div>
+                                <h5 class="text-primary-black mb-[10px] group-hover:text-primary-cyan transition-colors line-clamp-2">Industrial HVAC requirements for data centers and critical facilities</h5>
+                                <p class="text-secondary-dark2 text-[13px] leading-[160%] mb-[16px] line-clamp-3 flex-1">Data centers demand precision cooling with redundant HVAC systems, strict temperature tolerances, and uninterrupted airflow management strategies.</p>
+                                <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                </span>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation — dots left, arrows right -->
+                <div class="flex items-center justify-between mt-[32px]">
+                    <div id="carousel-dots" class="flex items-center gap-[8px]">
+                        <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
+                        <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+                        <button class="carousel-dot" data-index="2" aria-label="Go to slide 3"></button>
+                        <button class="carousel-dot" data-index="3" aria-label="Go to slide 4"></button>
+                    </div>
+                    <div class="flex items-center gap-[16px]">
+                        <button id="carousel-prev" class="carousel-arrow" aria-label="Previous articles">
+                            <span class="material-symbols-outlined font-bold text-xl">chevron_left</span>
+                        </button>
+                        <button id="carousel-next" class="carousel-arrow" aria-label="Next articles">
+                            <span class="material-symbols-outlined font-bold text-xl">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pointer-tracking script for glow cards -->
+        <script>
+            (function() {
+                var glowCards = document.querySelectorAll('[data-glow]');
+                document.addEventListener('pointermove', function(e) {
+                    var xp = (e.clientX / window.innerWidth).toFixed(2);
+                    glowCards.forEach(function(card) {
+                        var rect = card.getBoundingClientRect();
+                        card.style.setProperty('--glow-x', (e.clientX - rect.left + 4) + 'px');
+                        card.style.setProperty('--glow-y', (e.clientY - rect.top + 4) + 'px');
+                        card.style.setProperty('--xp', xp);
+                    });
+                });
+            })();
+        </script>
+    </section>
+
+    <!-- ========================= -->
+    <!-- SUBSCRIBE SECTION         -->
+    <!-- ========================= -->
+    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-gradient-to-b from-secondary-dark2 to-primary-black relative overflow-hidden">
+        <!-- Decorative grid pattern -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-10 flex flex-col items-center text-center gap-[24px]">
+
+            <div class="flex flex-col items-center gap-[20px] max-w-[600px] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                <h2 class="text-primary-white">
+                    Stay updated on <span class="text-gradient-yellow-cyan">HVAC engineering</span> insights
+                </h2>
+                <p class="text-gray-300" style="text-wrap: balance;">
+                    Subscribe to receive new posts and updates.
+                </p>
+            </div>
+
+            <!-- Email Input + CTA -->
+            <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md items-center sm:items-stretch mx-auto scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                <div class="subscribe-input-wrapper relative flex-1 p-[1px] rounded-[10px] bg-gradient-to-r from-primary-yellow to-primary-cyan transition-shadow duration-300 w-full sm:w-auto">
+                    <input type="email" id="subscribe-email" placeholder="Enter your email" class="w-full h-full bg-primary-pure-white text-[#ABABAB] placeholder-[#ABABAB] rounded-[9px] px-[20px] py-[12px] text-[14px] focus:outline-none">
+                </div>
+                <a href="#" id="subscribe-btn" class="btn-gradient whitespace-nowrap">Sign up</a>
+            </div>
+            <p class="text-gray-400 text-[12px] leading-[160%] -mt-2 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-300">
+                You agree to receive updates and accept terms.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-primary-black pt-[60px] pb-[40px] lg:pt-[100px] lg:px-[80px] overflow-hidden">
+        <!-- Background Pattern -->
+        <img src="assets/BG-Footer.png" alt="" class="absolute bottom-0 left-0 hidden lg:block w-auto h-[100%] object-cover opacity-50 z-0 pointer-events-none">
+        <img src="assets/BG-Footer-Mobile.png" alt="" class="absolute bottom-0 left-0 lg:hidden w-full h-auto object-cover opacity-50 z-0 pointer-events-none">
+
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-10 flex flex-col">
+            
+            <!-- Top Content Row -->
+            <div class="flex flex-col lg:flex-row justify-between gap-[60px] lg:gap-[40px]">
+                
+                <!-- Left Side (Logo & Reach Card) -->
+                <div class="flex flex-col w-full lg:w-[55%] xl:w-[50%] scroll-animate opacity-0 translate-y-[50px] lg:translate-y-0 lg:-translate-x-[50px] transition-all duration-1000 ease-out">
+                    <!-- Logo and Text -->
+                    <div class="flex flex-col md:flex-row items-start gap-8 md:gap-[60px] mb-[60px]">
+                        <img src="assets/Logo-Footer.svg" alt="Airexs US" class="w-[120px] md:w-[150px] h-auto flex-shrink-0">
+                        <div class="flex flex-col gap-8 max-w-[320px]">
+                            <p class="text-white text-[16px] leading-[160%]">
+                                Get the latest insights on design, engineering, and sustainable solutions delivered straight to your inbox.
+                            </p>
+                            <p class="text-white text-[16px] leading-[160%]">
+                                Sydney, NSW 2000, Australia
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reach Card -->
+                    <div class="w-full bg-gradient-to-r from-primary-yellow to-primary-cyan rounded-[40px] p-[30px] md:p-[40px] flex flex-col sm:flex-row justify-between gap-6 md:gap-[20px] xl:gap-[40px] min-h-[220px]">
+                        <!-- Left Column: Title -->
+                        <div class="flex items-start">
+                            <h2 class="text-primary-black text-[40px] md:text-[45px] xl:text-[56px] font-medium leading-[120%] [text-wrap:balance]">Reach</h2>
+                        </div>
+                        <!-- Right Column: Info & Socials -->
+                        <div class="flex flex-col sm:justify-between items-start sm:items-end flex-1 w-full h-full">
+                            <div class="flex flex-col gap-0 text-[18px] md:text-[20px] xl:text-[24px] font-medium text-left sm:text-right leading-[1.2]">
+                                <span>+61 2 9000 0000</span>
+                                <span>hello@airexsus.com</span>
+                            </div>
+                            <div class="flex items-center gap-4 justify-start sm:justify-end mt-6 sm:mt-auto w-full">
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/Facebook.png" alt="Facebook" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/Instagram.png" alt="Instagram" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/X.png" alt="X" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/LinkedIn.png" alt="LinkedIn" class="h-5 xl:h-6 w-auto"></a>
+                                <a href="#" class="hover:opacity-70 transition-opacity"><img src="assets/Social Media Icons/Youtube.png" alt="Youtube" class="h-5 xl:h-6 w-auto"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side (Links Grid) -->
+                <div class="w-full lg:w-[40%] grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-0 scroll-animate opacity-0 translate-y-[50px] lg:translate-y-0 lg:translate-x-[50px] transition-all duration-1000 ease-out delay-200">
+                    <!-- Column 1 -->
+                    <div class="flex flex-col w-full h-max">
+                        <a href="hvac-design-drafting.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">HVAC design</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="mep-engineering-support.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">MEP support</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="hvac-engineering-services.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Engineering</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="hvac-design-drafting.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Drafting</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="our-work.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Our work</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                    </div>
+                    
+                    <!-- Column 2 -->
+                    <div class="flex flex-col w-full h-max">
+                        <a href="about.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">About us</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="blog.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Blog</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Contact</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="faq.html" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">FAQ</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                            <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Resources</span>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="flex flex-col md:flex-row items-center md:items-end justify-between gap-6 pt-[60px] lg:pt-[100px]">
+                <p class="text-white text-[14px]">
+                    © 2026 Airexsus. All rights reserved.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-6">
+                    <a href="#" class="text-primary-cyan text-[14px] hover:text-primary-yellow transition-colors underline underline-offset-4">Privacy policy</a>
+                    <a href="#" class="text-primary-cyan text-[14px] hover:text-primary-yellow transition-colors underline underline-offset-4">Terms of service</a>
+                    <a href="#" class="text-primary-cyan text-[14px] hover:text-primary-yellow transition-colors underline underline-offset-4">Cookie settings</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+<!-- Scroll Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', '-translate-x-[50px]', 'translate-x-[50px]', 'translate-x-[-50px]', '-translate-x-[100px]', 'translate-x-[100px]', 'translate-y-[50px]', 'translate-y-[100px]', 'lg:translate-y-0', 'lg:-translate-x-[50px]', 'lg:translate-x-[50px]', 'lg:translate-x-[-50px]');
+                    entry.target.classList.add('opacity-100', 'translate-x-0', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+
+<!-- Blog Carousel Script — true infinite with cloned cards -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('blog-carousel-track');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const GAP = 20;
+
+        // Original cards (before cloning)
+        const originalCards = Array.from(track.querySelectorAll('.blog-card'));
+        const totalOriginal = originalCards.length; // 4
+
+        // Clone ALL cards and append them to the track so the strip
+        // is: [1 2 3 4] [1 2 3 4]  — this guarantees no empty space
+        // when scrolling past the last original card.
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+
+        let currentIndex = 0;
+        let isAnimating = false;
+
+        function getVisibleCount() {
+            const w = window.innerWidth;
+            if (w < 640) return 1;
+            if (w < 1024) return 2;
+            return 3;
+        }
+
+        function getStepPx() {
+            const firstCard = track.querySelector('.blog-card');
+            if (!firstCard) return 0;
+            return firstCard.offsetWidth + GAP;
+        }
+
+        function slideTo(index, animate) {
+            if (animate === undefined) animate = true;
+            currentIndex = index;
+            const offset = currentIndex * getStepPx();
+            track.style.transition = animate
+                ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                : 'none';
+            track.style.transform = 'translateX(-' + offset + 'px)';
+            updateDots();
+        }
+
+        // When the animated slide ends on a clone, jump silently to the
+        // real card at the same logical position.
+        function normalizeAfterTransition() {
+            if (currentIndex >= totalOriginal) {
+                // Jumped into clone territory — snap back to real
+                currentIndex = currentIndex - totalOriginal;
+                slideTo(currentIndex, false);
+            } else if (currentIndex < 0) {
+                currentIndex = currentIndex + totalOriginal;
+                slideTo(currentIndex, false);
+            }
+        }
+
+        function updateDots() {
+            const logicalIndex = ((currentIndex % totalOriginal) + totalOriginal) % totalOriginal;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === logicalIndex);
+            });
+        }
+
+        function next() {
+            if (isAnimating) return;
+            isAnimating = true;
+            slideTo(currentIndex + 1, true);
+            setTimeout(() => {
+                normalizeAfterTransition();
+                isAnimating = false;
+            }, 520);
+        }
+
+        function prev() {
+            if (isAnimating) return;
+            isAnimating = true;
+            if (currentIndex === 0) {
+                // Jump to clone zone silently, then animate back
+                slideTo(totalOriginal, false);
+                // Force reflow so the browser paints the jump
+                void track.offsetHeight;
+                slideTo(totalOriginal - 1, true);
+            } else {
+                slideTo(currentIndex - 1, true);
+            }
+            setTimeout(() => {
+                normalizeAfterTransition();
+                isAnimating = false;
+            }, 520);
+        }
+
+        // Button listeners
+        prevBtn.addEventListener('click', prev);
+        nextBtn.addEventListener('click', next);
+
+        // Dot listeners
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                if (isAnimating) return;
+                isAnimating = true;
+                slideTo(parseInt(dot.dataset.index), true);
+                setTimeout(() => { isAnimating = false; }, 520);
+            });
+        });
+
+        // Touch / swipe support
+        let startX = 0, deltaX = 0, swiping = false;
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            swiping = true;
+            track.style.transition = 'none';
+        }, { passive: true });
+        track.addEventListener('touchmove', (e) => {
+            if (!swiping) return;
+            deltaX = e.touches[0].clientX - startX;
+            const base = currentIndex * getStepPx();
+            track.style.transform = 'translateX(' + (-base + deltaX) + 'px)';
+        }, { passive: true });
+        track.addEventListener('touchend', () => {
+            swiping = false;
+            if (Math.abs(deltaX) > 50) {
+                deltaX < 0 ? next() : prev();
+            } else {
+                slideTo(currentIndex, true);
+            }
+            deltaX = 0;
+        });
+
+        // Recalculate on resize
+        window.addEventListener('resize', () => slideTo(currentIndex, false));
+
+        // Initial position
+        slideTo(0, false);
+    });
+</script>
+
+<!-- Mobile Menu Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileServicesBtn = document.getElementById('mobile-services-btn');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        const mobileServicesIcon = document.getElementById('mobile-services-icon');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('span');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.textContent = 'menu';
+                } else {
+                    icon.textContent = 'close';
+                }
+            });
+        }
+
+        if (mobileServicesBtn && mobileServicesMenu) {
+            mobileServicesBtn.addEventListener('click', () => {
+                mobileServicesMenu.classList.toggle('hidden');
+                mobileServicesMenu.classList.toggle('flex');
+                if (mobileServicesMenu.classList.contains('hidden')) {
+                    mobileServicesIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    mobileServicesIcon.style.transform = 'rotate(180deg)';
+                }
+            });
+        }
+    });
+</script>
+    <script src="js/hero-particles.js"></script>
+</body>
+</html>
