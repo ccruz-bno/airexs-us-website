@@ -12,17 +12,17 @@
         @layer base {
             h1 { @apply font-medium text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] leading-[110%] tracking-[0px]; }
             h2 { 
-                @apply font-medium text-[32px] md:text-[45px] tracking-[0px];
+                @apply font-medium text-[30px] md:text-[45px] tracking-[0px];
                 line-height: 120%;
                 text-wrap: balance;
             }
             h3 { 
-                @apply font-medium text-[28px] md:text-[38px] tracking-[0px];
-                line-height: 120%;
+                @apply font-medium text-[24px] md:text-[38px] tracking-[0px];
+                line-height: 110%;
                 text-wrap: balance;
             }
             h4 { @apply font-medium text-[20px] md:text-[24px] leading-[120%] tracking-[0.2px]; }
-            h5 { @apply font-medium text-[18px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
+            h5 { @apply font-medium text-[16px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
             h6 { @apply font-medium text-[16px] md:text-[18px] leading-[140%] tracking-[0.2px]; }
             p { @apply font-normal text-[14px] md:text-[16px] leading-[160%] tracking-[0.2px]; }
         }
@@ -76,7 +76,7 @@
             <div class="hidden lg:flex items-center gap-[20px]">
                 <!-- Links -->
                 <div class="flex items-center gap-[20px] text-[16px] leading-[160%] tracking-[0.2px] font-normal text-primary-white">
-                    <a href="#" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">Our Work</a>
+                    <a href="our-work.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">Our Work</a>
                     
                     <a href="about.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">About Us</a>
                     
@@ -111,7 +111,7 @@
         <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden absolute top-[80px] left-0 w-full bg-[#21242B] border-t border-gray-700 shadow-xl overflow-y-auto" style="max-height: calc(100vh - 80px);">
             <div class="flex flex-col p-[20px] gap-5 text-primary-white">
-                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
+                <a href="our-work.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
                 <a href="about.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">About Us</a>
                 
                 <!-- Mobile Services Dropdown -->
@@ -154,7 +154,7 @@
                 </p>
 
                 <!-- Email Input + CTA -->
-                <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md items-stretch">
+                <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md items-center sm:items-stretch mx-auto lg:mx-0">
                     <div class="relative flex-1 p-[1px] rounded-[10px] bg-gradient-to-r from-primary-yellow to-primary-cyan">
                         <input type="email" placeholder="Your email address" class="w-full h-full bg-primary-pure-white text-[#ABABAB] placeholder-[#ABABAB] rounded-[9px] px-[20px] py-[12px] text-[14px] focus:outline-none">
                     </div>
@@ -179,7 +179,7 @@
         <div class="max-w-[1280px] px-[20px] w-full mx-auto flex flex-col gap-[30px]">
 
             <!-- Block 1: Load Calculation (Image Left / Text Right) -->
-            <div data-glow class="bg-primary-white rounded-[40px] p-[30px] md:p-[50px] grid grid-cols-12 gap-[30px] lg:gap-[50px] items-center scroll-animate opacity-0 translate-y-[50px] transition-all duration-300 ease-out hover:-translate-y-4">
+            <div data-glow class="bg-primary-white rounded-[40px] p-[30px] md:p-[50px] grid grid-cols-12 gap-x-0 gap-y-[30px] lg:gap-[50px] items-center scroll-animate opacity-0 translate-y-[50px] transition-all duration-300 ease-out hover:-translate-y-4">
                 <!-- Image -->
                 <div class="col-span-12 lg:col-span-5 overflow-hidden rounded-[20px] relative z-10">
                     <img src="assets/HVAC Engineering Services/Benefits-img-1.png" alt="HVAC load calculation and gauges" class="w-full h-auto object-cover">
@@ -199,7 +199,7 @@
             </div>
 
             <!-- Block 2: Equipment Selection (Text Left / Image Right) -->
-            <div data-glow class="bg-primary-white rounded-[40px] p-[30px] md:p-[50px] grid grid-cols-12 gap-[30px] lg:gap-[50px] items-center scroll-animate opacity-0 translate-y-[50px] transition-all duration-300 ease-out delay-100 hover:-translate-y-4">
+            <div data-glow class="bg-primary-white rounded-[40px] p-[30px] md:p-[50px] grid grid-cols-12 gap-x-0 gap-y-[30px] lg:gap-[50px] items-center scroll-animate opacity-0 translate-y-[50px] transition-all duration-300 ease-out delay-100 hover:-translate-y-4">
                 <!-- Text (order reversed on mobile) -->
                 <div class="col-span-12 lg:col-span-6 flex flex-col gap-[20px] order-2 lg:order-1 relative z-10">
                     <h3 class="text-primary-black">
@@ -219,7 +219,7 @@
             </div>
 
             <!-- Block 3: Energy Modeling (Image Left / Text Right with Bullet Points) -->
-            <div data-glow class="bg-primary-white rounded-[40px] p-[30px] md:p-[50px] grid grid-cols-12 gap-[30px] lg:gap-[50px] items-start scroll-animate opacity-0 translate-y-[50px] transition-all duration-300 ease-out delay-200 hover:-translate-y-4">
+            <div data-glow class="bg-primary-white rounded-[40px] p-[30px] md:p-[50px] grid grid-cols-12 gap-x-0 gap-y-[30px] lg:gap-[50px] items-start scroll-animate opacity-0 translate-y-[50px] transition-all duration-300 ease-out delay-200 hover:-translate-y-4">
                 <!-- Image -->
                 <div class="col-span-12 lg:col-span-5 overflow-hidden rounded-[20px] relative z-10">
                     <img src="assets/HVAC Engineering Services/Benefits-img-3.png" alt="HVAC system design blueprints" class="w-full h-auto object-cover">
@@ -303,7 +303,7 @@
         <img src="assets/About Us/Data-Grid-BG-img.png?v=2" alt="" class="absolute bottom-0 left-0 hidden lg:block w-auto h-auto z-0 pointer-events-none mix-blend-exclusion opacity-60">
         <img src="assets/About Us/Data-Grid-BG-img-Mobile.png?v=2" alt="" class="absolute top-0 left-0 lg:hidden w-auto h-auto z-0 pointer-events-none mix-blend-exclusion opacity-60">
 
-        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-[40px] lg:gap-[60px] items-start relative z-10">
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-x-0 gap-y-[40px] lg:gap-[60px] items-start relative z-10">
 
             <!-- Left Column: Title + CTA Card -->
             <div class="col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left gap-[30px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
@@ -332,7 +332,7 @@
                 <!-- FAQ Item 1 (open by default) -->
                 <div class="faq-item" data-open="true">
                     <button class="faq-toggle w-full bg-primary-cyan rounded-t-[16px] rounded-b-none p-[20px] md:p-[24px] flex items-center justify-between gap-4 text-left transition-all hover:opacity-95">
-                        <h5 class="text-primary-white font-semibold leading-[140%] flex-1">How do HVAC engineering services support early project planning?</h5>
+                        <h5 class="text-primary-white font-semibold leading-[120%] md:leading-[140%] flex-1">How do HVAC engineering services support early project planning?</h5>
                         <img src="assets/HVAC Engineering Services/MinusCircleOutlined.png" alt="Toggle" class="faq-icon-minus w-[28px] h-[28px] flex-shrink-0">
                         <img src="assets/HVAC Engineering Services/PlusCircleOutlined.png" alt="Toggle" class="faq-icon-plus w-[28px] h-[28px] flex-shrink-0 hidden">
                     </button>
@@ -346,7 +346,7 @@
                 <!-- FAQ Item 2 -->
                 <div class="faq-item" data-open="false">
                     <button class="faq-toggle w-full bg-gradient-to-r from-secondary-dark2 to-primary-cyan rounded-[16px] p-[20px] md:p-[24px] flex items-center justify-between gap-4 text-left transition-all hover:opacity-95">
-                        <h5 class="text-primary-white font-semibold leading-[140%] flex-1">When should a team involve HVAC engineering consultants?</h5>
+                        <h5 class="text-primary-white font-semibold leading-[120%] md:leading-[140%] flex-1">When should a team involve HVAC engineering consultants?</h5>
                         <img src="assets/HVAC Engineering Services/MinusCircleOutlined.png" alt="Toggle" class="faq-icon-minus w-[28px] h-[28px] flex-shrink-0 hidden">
                         <img src="assets/HVAC Engineering Services/PlusCircleOutlined.png" alt="Toggle" class="faq-icon-plus w-[28px] h-[28px] flex-shrink-0">
                     </button>
@@ -360,7 +360,7 @@
                 <!-- FAQ Item 3 -->
                 <div class="faq-item" data-open="false">
                     <button class="faq-toggle w-full bg-gradient-to-r from-secondary-dark2 to-primary-cyan rounded-[16px] p-[20px] md:p-[24px] flex items-center justify-between gap-4 text-left transition-all hover:opacity-95">
-                        <h5 class="text-primary-white font-semibold leading-[140%] flex-1">What is the role of HVAC consulting engineers in technical decisions?</h5>
+                        <h5 class="text-primary-white font-semibold leading-[120%] md:leading-[140%] flex-1">What is the role of HVAC consulting engineers in technical decisions?</h5>
                         <img src="assets/HVAC Engineering Services/MinusCircleOutlined.png" alt="Toggle" class="faq-icon-minus w-[28px] h-[28px] flex-shrink-0 hidden">
                         <img src="assets/HVAC Engineering Services/PlusCircleOutlined.png" alt="Toggle" class="faq-icon-plus w-[28px] h-[28px] flex-shrink-0">
                     </button>
@@ -374,7 +374,7 @@
                 <!-- FAQ Item 4 -->
                 <div class="faq-item" data-open="false">
                     <button class="faq-toggle w-full bg-gradient-to-r from-secondary-dark2 to-primary-cyan rounded-[16px] p-[20px] md:p-[24px] flex items-center justify-between gap-4 text-left transition-all hover:opacity-95">
-                        <h5 class="text-primary-white font-semibold leading-[140%] flex-1">How is mechanical engineering HVAC design different from basic equipment selection?</h5>
+                        <h5 class="text-primary-white font-semibold leading-[120%] md:leading-[140%] flex-1">How is mechanical engineering HVAC design different from basic equipment selection?</h5>
                         <img src="assets/HVAC Engineering Services/MinusCircleOutlined.png" alt="Toggle" class="faq-icon-minus w-[28px] h-[28px] flex-shrink-0 hidden">
                         <img src="assets/HVAC Engineering Services/PlusCircleOutlined.png" alt="Toggle" class="faq-icon-plus w-[28px] h-[28px] flex-shrink-0">
                     </button>
@@ -388,7 +388,7 @@
                 <!-- FAQ Item 5 -->
                 <div class="faq-item" data-open="false">
                     <button class="faq-toggle w-full bg-gradient-to-r from-secondary-dark2 to-primary-cyan rounded-[16px] p-[20px] md:p-[24px] flex items-center justify-between gap-4 text-left transition-all hover:opacity-95">
-                        <h5 class="text-primary-white font-semibold leading-[140%] flex-1">Can Airexs US support an internal HVAC designer or project team?</h5>
+                        <h5 class="text-primary-white font-semibold leading-[120%] md:leading-[140%] flex-1">Can Airexs US support an internal HVAC designer or project team?</h5>
                         <img src="assets/HVAC Engineering Services/MinusCircleOutlined.png" alt="Toggle" class="faq-icon-minus w-[28px] h-[28px] flex-shrink-0 hidden">
                         <img src="assets/HVAC Engineering Services/PlusCircleOutlined.png" alt="Toggle" class="faq-icon-plus w-[28px] h-[28px] flex-shrink-0">
                     </button>
@@ -407,7 +407,7 @@
     <!-- START YOUR PROJECT SECTION     -->
     <!-- ============================== -->
     <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
-        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-[40px] lg:gap-[20px] items-start">
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-x-0 gap-y-[40px] lg:gap-[20px] items-start">
 
             <!-- Left Column: Text (4 cols) -->
             <div class="col-span-12 lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left gap-[20px] scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
@@ -421,9 +421,9 @@
             <!-- Right Column: Form Card (7 cols + 1 offset) -->
             <div class="col-span-12 lg:col-span-7 lg:col-start-6 scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
                 <div class="bg-secondary-dark2 rounded-[24px] p-[30px] md:p-[40px]">
-                    <form class="flex flex-col gap-[20px]">
+                    <form class="flex flex-col gap-[12px] md:gap-[20px]">
                         <!-- Name & Email Row -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-[12px] sm:gap-[16px]">
                             <input type="text" placeholder="Name" class="w-full bg-primary-pure-white text-primary-black placeholder-[#ABABAB] rounded-[10px] px-[20px] py-[14px] text-[14px] leading-[160%] focus:outline-none focus:ring-2 focus:ring-primary-cyan">
                             <input type="email" placeholder="Email" class="w-full bg-primary-pure-white text-primary-black placeholder-[#ABABAB] rounded-[10px] px-[20px] py-[14px] text-[14px] leading-[160%] focus:outline-none focus:ring-2 focus:ring-primary-cyan">
                         </div>
@@ -543,7 +543,7 @@
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Drafting</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
-                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                        <a href="our-work.html" class="group py-4 flex flex-col relative w-full">
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Our work</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>

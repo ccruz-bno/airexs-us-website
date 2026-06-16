@@ -2,12 +2,14 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     background-color: #F1F1F1;
     font-family: 'Poppins', sans-serif;
     color: #0C1115;
+    overflow-x: hidden;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -41,6 +43,78 @@ p, h1, h2, h3, h4, h5, h6 {
 @media (min-width: 640px)  { #home-hero-title { font-size: 38px; } }
 @media (min-width: 768px)  { #home-hero-title { font-size: 40px; } }
 @media (min-width: 1280px) { #home-hero-title { font-size: 44px; } }
+
+/* ─── Mobile CTA Button Fixes ─── */
+/* Prevent CTA buttons from overflowing on small screens */
+@media (max-width: 639px) {
+    /* Shared button component overrides */
+    .btn-cyan,
+    .btn-yellow,
+    .btn-outline-yellow,
+    .btn-gradient {
+        padding-left: 14px;
+        padding-right: 14px;
+        line-height: 1 !important;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        text-wrap: balance;
+        max-width: 260px;
+    }
+
+    /* Mobile nav menu buttons should stay full-width */
+    #mobile-menu .btn-cyan,
+    #mobile-menu .btn-outline-yellow {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Tab-section gradient pill CTA overrides */
+    #tab-content-1 a,
+    #tab-content-2 a,
+    #tab-content-3 a {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+        line-height: 1 !important;
+        text-align: center;
+        text-wrap: balance;
+        max-width: 260px;
+    }
+}
+
+/* ─── Team Section Mobile Fixes ─── */
+@media (max-width: 639px) {
+    /* Reduce card padding & border-radius */
+    #team-section .bg-primary-pure-white,
+    #team-section .bg-primary-yellow {
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    /* Smaller team member photos */
+    #team-section img[alt="Sofia Mendez"],
+    #team-section img[alt="David Park"],
+    #team-section img[alt="Isabella Rossi"],
+    #team-section img[alt="Thomas Weber"],
+    #team-section img[alt="Amara Okonkwo"],
+    #team-section img[alt="Lucas Fernandes"] {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+    }
+
+    /* Reduce gap between photo and name */
+    #team-section .flex.items-center {
+        gap: 12px;
+    }
+
+    /* Prevent email overflow */
+    #team-section a[href^="mailto:"] {
+        word-break: break-all;
+    }
+}
 
 /* Hero Background — gradient base (particles rendered via Canvas) */
 .hero-bg {

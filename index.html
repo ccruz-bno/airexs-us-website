@@ -11,17 +11,16 @@
         @layer base {
             h1 { @apply font-medium text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] leading-[110%] tracking-[0px]; }
             h2 { 
-                @apply font-medium text-[32px] md:text-[45px] tracking-[0px];
+                @apply font-medium text-[30px] md:text-[45px] tracking-[0px];
                 line-height: 120%;
                 text-wrap: balance;
             }
             h3 { 
-                @apply font-medium text-[28px] md:text-[38px] tracking-[0px];
-                line-height: 120%;
+                @apply font-medium text-[24px] md:text-[38px] tracking-[0px] leading-[110%] md:leading-[120%];
                 text-wrap: balance;
             }
             h4 { @apply font-medium text-[20px] md:text-[24px] leading-[120%] tracking-[0.2px]; }
-            h5 { @apply font-medium text-[18px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
+            h5 { @apply font-medium text-[16px] md:text-[20px] leading-[120%] tracking-[0.2px]; }
             h6 { @apply font-medium text-[16px] md:text-[18px] leading-[140%] tracking-[0.2px]; }
             p { @apply font-normal text-[14px] md:text-[16px] leading-[160%] tracking-[0.2px]; }
         }
@@ -50,7 +49,7 @@
         }
     </style>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <link rel="stylesheet" href="css/style.css?v=1.4">
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 </head>
@@ -75,7 +74,7 @@
             <div class="hidden lg:flex items-center gap-[20px]">
                 <!-- Links -->
                 <div class="flex items-center gap-[20px] text-[16px] leading-[160%] tracking-[0.2px] font-normal text-primary-white">
-                    <a href="#" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">Our Work</a>
+                    <a href="our-work.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">Our Work</a>
                     
                     <a href="about.html" class="border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan pt-[5px] pb-[5px] transition-all duration-200">About Us</a>
                     
@@ -110,7 +109,7 @@
         <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden absolute top-[80px] left-0 w-full bg-[#21242B] border-t border-gray-700 shadow-xl overflow-y-auto" style="max-height: calc(100vh - 80px);">
             <div class="flex flex-col p-[20px] gap-5 text-primary-white">
-                <a href="#" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
+                <a href="our-work.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">Our Work</a>
                 <a href="about.html" class="text-[18px] w-max font-medium border-b-2 border-transparent hover:border-primary-yellow hover:text-primary-cyan transition-all duration-200 py-1">About Us</a>
                 
                 <!-- Mobile Services Dropdown -->
@@ -181,9 +180,9 @@
     </section>
 
     <!-- What sets us apart Section -->
-    <section class="py-[100px] lg:px-[80px] bg-primary-pure-white">
+    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
         <div class="max-w-[1280px] px-[20px] w-full mx-auto text-center">
-            <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+            <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
                 <span class="text-primary-cyan">Engineering HVAC support for projects where guesswork</span> is not an option
             </h2>
             <div class="text-primary-black max-w-4xl mx-auto mb-16 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100 space-y-4">
@@ -243,14 +242,14 @@
 
 
     <!-- We define the vision Section -->
-    <section class="relative py-[100px] lg:px-[80px] bg-gradient-to-b from-primary-white to-primary-pure-white">
+    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-gradient-to-b from-primary-white to-primary-pure-white">
         <!-- Top Gradient Border -->
         <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent"></div>
         <!-- Bottom Gradient Border -->
         <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent"></div>
 
         <div class="max-w-[1280px] px-[20px] w-full mx-auto text-center mb-16">
-            <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+            <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
                 A structured HVAC engineering process from <span class="text-primary-cyan">early definition to execution</span>
             </h2>
             <p class="text-primary-black max-w-3xl mx-auto mb-8 scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-100">
@@ -284,7 +283,7 @@
                     <div class="w-full lg:w-1/2 xl:w-[480px] p-[40px] lg:p-0 relative">
                         <!-- Tab 1 -->
                         <div id="tab-content-1" class="space-y-6 text-left transition-opacity duration-300">
-                            <h3 class="text-3xl md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
+                            <h3 class="md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
                                 Start with the right HVAC requirements <span class="text-primary-cyan">before design begins</span>
                             </h3>
                             <p class="text-gray-400 text-sm md:text-[15px] leading-relaxed">
@@ -297,7 +296,7 @@
                         
                         <!-- Tab 2 -->
                         <div id="tab-content-2" class="space-y-6 text-left hidden transition-opacity duration-300">
-                            <h3 class="text-3xl md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
+                            <h3 class="md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
                                 Develop HVAC design engineering with clear <span class="text-primary-cyan">technical documentation</span>
                             </h3>
                             <p class="text-gray-400 text-sm md:text-[15px] leading-relaxed">
@@ -310,7 +309,7 @@
 
                         <!-- Tab 3 -->
                         <div id="tab-content-3" class="space-y-6 text-left hidden transition-opacity duration-300">
-                            <h3 class="text-3xl md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
+                            <h3 class="md:text-[38px] font-medium leading-[120%] [text-wrap:balance] text-primary-white">
                                 Coordinate engineering decisions with <span class="text-primary-cyan">project execution</span>
                             </h3>
                             <p class="text-gray-400 text-sm md:text-[15px] leading-relaxed">
@@ -356,12 +355,12 @@
         </script>
     </section>
     <!-- Clients Speak Section -->
-    <section class="py-[100px] lg:px-[80px] bg-primary-pure-white">
+    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
         <div class="max-w-[1280px] px-[20px] w-full mx-auto">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-                <div class="scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
-                    <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4">
+                <div class="text-center md:text-left scroll-animate opacity-0 -translate-x-[50px] transition-all duration-1000 ease-out">
+                    <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4">
                         Clients <span class="text-primary-cyan">speak</span>
                     </h2>
                     <p class="text-secondary-dark2">What our partners say about working with us</p>
@@ -381,11 +380,11 @@
                 <div id="testimonial-track" class="flex flex-col lg:flex-row lg:flex-nowrap gap-5 transition-transform duration-500 ease-in-out">
                     <!-- Testimonial 1 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-0 xl:gap-6 sm:items-start relative z-10">
                             <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
                                 <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
                             </div>
-                            <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
+                            <p class="text-primary-black text-[20px] font-normal leading-[120%] md:leading-relaxed flex-1 [text-wrap:wrap]">
                                 They understood what we needed before we fully understood it ourselves. The results exceeded every expectation.
                             </p>
                         </div>
@@ -400,11 +399,11 @@
 
                     <!-- Testimonial 2 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-0 xl:gap-6 sm:items-start relative z-10">
                             <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
                                 <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
                             </div>
-                            <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
+                            <p class="text-primary-black text-[20px] font-normal leading-[120%] md:leading-relaxed flex-1 [text-wrap:wrap]">
                                 Airexsus delivered a solution that was both beautiful and functional. The sustainability measures they integrated saved us money from day one.
                             </p>
                         </div>
@@ -419,11 +418,11 @@
 
                     <!-- Testimonial 3 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-0 xl:gap-6 sm:items-start relative z-10">
                             <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
                                 <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
                             </div>
-                            <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
+                            <p class="text-primary-black text-[20px] font-normal leading-[120%] md:leading-relaxed flex-1 [text-wrap:wrap]">
                                 They understood what we needed before we fully understood it ourselves. The results exceeded every expectation.
                             </p>
                         </div>
@@ -438,11 +437,11 @@
 
                     <!-- Testimonial 4 -->
                     <div class="w-full lg:w-[calc(50%-10px)] flex-shrink-0 h-auto min-h-[360px] bg-primary-white rounded-[40px] py-[40px] px-[50px] relative flex flex-col justify-between overflow-hidden border-t-[3px] border-b-[3px] border-primary-cyan">
-                        <div class="flex gap-6 lg:gap-0 xl:gap-6 items-start relative z-10">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-0 xl:gap-6 sm:items-start relative z-10">
                             <div class="w-auto lg:w-[30%] xl:w-auto lg:pr-6 xl:pr-0 flex-shrink-0">
                                 <img src="assets/Clients Speak Section/Quotes.png" alt="Quotes" class="w-auto max-w-[80px] lg:w-full lg:max-w-none xl:w-auto xl:max-w-[80px] h-auto">
                             </div>
-                            <p class="text-primary-black text-[20px] font-normal leading-relaxed flex-1 [text-wrap:wrap]">
+                            <p class="text-primary-black text-[20px] font-normal leading-[120%] md:leading-relaxed flex-1 [text-wrap:wrap]">
                                 Airexsus delivered a solution that was both beautiful and functional. The sustainability measures they integrated saved us money from day one.
                             </p>
                         </div>
@@ -467,7 +466,7 @@
         <div class="absolute inset-0 pointer-events-none flex justify-center z-0 overflow-hidden">
             <div class="w-full max-w-[1280px] h-full relative flex justify-end items-center px-[20px]">
                 <!-- Machinery Background -->
-                <img src="assets/Build-On-BG-Img.png" alt="Machinery Background" class="w-[100%] md:w-[50%] xl:w-auto max-w-none mt-[160px] md:mt-0 mr-[-30px] md:mr-[-140px] scroll-animate opacity-0 translate-x-[100px] transition-all duration-1000 ease-out delay-100">
+                <img src="assets/Build-On-BG-Img.png" alt="Machinery Background" class="w-[100%] md:w-[50%] xl:w-auto max-w-none mt-[460px] md:mt-0 mr-[-30px] md:mr-[-140px] scroll-animate opacity-0 translate-x-[100px] transition-all duration-1000 ease-out delay-100">
             </div>
         </div>
 
@@ -482,7 +481,7 @@
         <div class="max-w-[1280px] px-[20px] w-full mx-auto relative z-20">
             <!-- Text Content -->
             <div class="w-full md:w-[55%] lg:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-[30px] scroll-animate opacity-0 -translate-x-[100px] transition-all duration-1000 ease-out py-[20px] md:py-[40px]">
-                <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance]">
+                <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance]">
                     A technical guide for high-stakes <span class="text-gradient-yellow-cyan">HVAC engineering decisions</span>
                 </h2>
                 <p class="text-gray-300 text-[16px] md:text-[18px] leading-relaxed max-w-lg">
@@ -501,14 +500,14 @@
     </section>
 
     <!-- The Team Section -->
-    <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-white">
-        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-[40px] lg:gap-[60px]">
+    <section id="team-section" class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-white">
+        <div class="max-w-[1280px] px-[20px] w-full mx-auto grid grid-cols-12 gap-x-0 gap-y-[40px] lg:gap-[60px]">
             
             <!-- Left Column: Title & Hiring Box -->
             <div class="col-span-12 lg:col-span-4 flex flex-col md:flex-row lg:flex-col gap-10 md:items-center lg:items-start">
                 
                 <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out text-center md:text-left md:w-1/2 lg:w-full">
-                    <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6">
+                    <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6">
                         Meet the technical profiles behind every <span class="text-primary-cyan">HVAC engineering decision</span>
                     </h2>
                     <p class="text-secondary-dark2 text-[16px] md:text-[18px]">
@@ -649,7 +648,7 @@
         <div class="max-w-[1280px] px-[20px] w-full mx-auto">
             <!-- Header -->
             <div class="flex flex-col items-center mb-[60px] text-center scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
-                <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4">
+                <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-4">
                     <span class="text-primary-cyan">HVAC engineering applied</span> to commercial and industrial projects
                 </h2>
                 <p class="text-secondary-dark2 text-[16px] md:text-[18px] max-w-[800px]">
@@ -731,7 +730,7 @@
                 
                 <!-- Left Content -->
                 <div class="w-full lg:w-[45%] flex flex-col items-center lg:items-start text-center lg:text-left scroll-animate opacity-0 translate-x-[-50px] transition-all duration-1000 ease-out">
-                    <h2 class="text-4xl md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6">
+                    <h2 class="md:text-[45px] font-medium leading-[120%] [text-wrap:balance] text-primary-black mb-6">
                         <span class="text-primary-cyan">Start your HVAC project with better</span> technical clarity
                     </h2>
                     <p class="text-secondary-dark2 text-[16px] md:text-[18px] max-w-[450px]">
@@ -741,15 +740,15 @@
 
                 <!-- Right Form Card -->
                 <div class="w-full max-w-[715px] bg-primary-cyan rounded-[40px] p-[40px] md:p-[60px] scroll-animate opacity-0 translate-x-[50px] transition-all duration-1000 ease-out delay-200">
-                    <form class="flex flex-col gap-6">
+                    <form class="flex flex-col gap-3 md:gap-6">
                         <!-- Row 1 -->
-                        <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex flex-col md:flex-row gap-3 md:gap-6">
                             <input type="text" placeholder="First Name" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow">
                             <input type="text" placeholder="Last Name" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow">
                         </div>
                         
                         <!-- Row 2 -->
-                        <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex flex-col md:flex-row gap-3 md:gap-6">
                             <input type="email" placeholder="Email" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow">
                             <input type="tel" placeholder="Phone Number" class="w-full bg-white rounded-[10px] px-[20px] py-[16px] text-[#31353F] placeholder-[#8A8F99] focus:outline-none focus:ring-2 focus:ring-primary-yellow">
                         </div>
@@ -852,7 +851,7 @@
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Drafting</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
-                        <a href="#" class="group py-4 flex flex-col relative w-full">
+                        <a href="our-work.html" class="group py-4 flex flex-col relative w-full">
                             <span class="text-white text-[16px] leading-[160%] group-hover:text-primary-yellow transition-colors">Our work</span>
                             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary-yellow to-primary-cyan opacity-80"></div>
                         </a>
