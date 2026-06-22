@@ -96,14 +96,55 @@
             width: 32px;
             border-radius: 5px;
         }
-        /* Category filter dropdown */
-        .filter-select {
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23ABABAB' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            background-size: 20px;
+        /* Category filter tags */
+        .category-tag {
+            position: relative;
+            outline: none;
+        }
+        .category-tag:hover {
+            border-color: #2B99D1;
+        }
+        .category-tag.active {
+            background: linear-gradient(135deg, rgba(43,153,209,0.08), rgba(43,153,209,0.04));
+            border-color: #2B99D1;
+            box-shadow: 0 0 12px rgba(43, 153, 209, 0.15);
+        }
+        /* Pagination */
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            background: #FFFFFF;
+            color: #5C5C5C;
+            transition: all 0.3s ease;
+        }
+        .pagination-btn:hover {
+            border-color: #2B99D1;
+            color: #2B99D1;
+        }
+        .pagination-btn.active {
+            background: linear-gradient(135deg, #5C5C5C, #2B99D1);
+            color: #FFFFFF;
+            border-color: transparent;
+        }
+        .pagination-btn.arrow {
+            background: #FFE900;
+            color: #0C1115;
+            border: none;
+        }
+        .pagination-btn.arrow:hover {
+            opacity: 0.8;
+        }
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
         /* Subscribe input focus glow */
         .subscribe-input-wrapper:focus-within {
@@ -233,21 +274,6 @@
                     Technical articles on <strong class="text-primary-white">HVAC system design</strong> and <strong class="text-primary-white">MEP engineering</strong>.
                 </p>
             </div>
-
-            <!-- Category Filter Dropdown -->
-            <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
-                <div class="relative p-[1px] rounded-[10px] bg-gradient-to-r from-primary-yellow to-primary-cyan inline-block">
-                    <select id="blog-filter" class="filter-select bg-primary-pure-white text-[#ABABAB] text-[14px] font-medium rounded-[9px] pl-[20px] pr-[48px] py-[12px] focus:outline-none cursor-pointer min-w-[200px]">
-                        <option value="all">All posts</option>
-                        <option value="design">Design</option>
-                        <option value="engineering">Engineering</option>
-                        <option value="hvac-design">HVAC design</option>
-                        <option value="mep-engineering">MEP engineering</option>
-                        <option value="ductwork">Ductwork</option>
-                        <option value="industrial">Industrial HVAC</option>
-                    </select>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -257,11 +283,36 @@
     <section class="py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-white">
         <div class="max-w-[1280px] px-[20px] w-full mx-auto">
 
-            <!-- 2 horizontal featured cards -->
-            <div class="flex flex-col gap-[24px]">
+            <!-- Category Filter Tags -->
+            <div class="flex flex-wrap items-center justify-center gap-[10px] mb-[40px] lg:mb-[60px] scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+                <button class="category-tag active inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="all">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">All</span>
+                </button>
+                <button class="category-tag inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="design">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">Design</span>
+                </button>
+                <button class="category-tag inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="engineering">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">Engineering</span>
+                </button>
+                <button class="category-tag inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="hvac-design">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">HVAC design</span>
+                </button>
+                <button class="category-tag inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="mep-engineering">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">MEP engineering</span>
+                </button>
+                <button class="category-tag inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="ductwork">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">Ductwork</span>
+                </button>
+                <button class="category-tag inline-block bg-primary-pure-white rounded-[12px] px-[16px] py-[6px] cursor-pointer transition-all duration-300 border border-transparent" data-category="industrial">
+                    <span class="text-gradient-dark2-cyan text-[12px] font-semibold leading-[160%] tracking-[2px] uppercase">Industrial HVAC</span>
+                </button>
+            </div>
 
-                <!-- Featured Article 1 -->
-                <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out">
+            <!-- 2 horizontal featured cards -->
+            <div id="filterable-cards" class="flex flex-col gap-[24px]">
+
+                <!-- Featured Article 1 — Design -->
+                <div class="filterable-card scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out" data-category="design">
                 <a href="blog-post.html" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
                     <!-- Image -->
                     <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
@@ -284,8 +335,8 @@
                 </a>
                 </div>
 
-                <!-- Featured Article 2 -->
-                <div class="scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200">
+                <!-- Featured Article 2 — Engineering -->
+                <div class="filterable-card scroll-animate opacity-0 translate-y-[50px] transition-all duration-1000 ease-out delay-200" data-category="engineering">
                 <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
                     <!-- Image -->
                     <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
@@ -308,7 +359,98 @@
                 </a>
                 </div>
 
+                <!-- Carousel Article 1 — HVAC design (hidden by default, shown on filter) -->
+                <div class="filterable-card hidden" data-category="hvac-design">
+                <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                    <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
+                        <img src="assets/Blog/Blog-Img-1.png" alt="HVAC system design commercial building cross-section" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-[24px] lg:p-[40px] flex flex-col justify-center flex-1">
+                        <div class="flex items-center gap-[12px] mb-[16px]">
+                            <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">HVAC design</span>
+                            <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                            <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                        </div>
+                        <h3 class="text-primary-black text-[22px] lg:text-[28px] font-semibold leading-[130%] mb-[12px] group-hover:text-primary-cyan transition-colors">Optimizing commercial HVAC system layouts for energy efficiency</h3>
+                        <p class="text-secondary-dark2 text-[14px] lg:text-[15px] leading-[160%] mb-[20px] line-clamp-3">Learn how modern HVAC system design approaches reduce energy consumption while maintaining occupant comfort in commercial buildings.</p>
+                        <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </span>
+                    </div>
+                </a>
+                </div>
+
+                <!-- Carousel Article 2 — MEP engineering (hidden by default) -->
+                <div class="filterable-card hidden" data-category="mep-engineering">
+                <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                    <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
+                        <img src="assets/Blog/Blog-Img-2.png" alt="MEP coordination BIM model" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-[24px] lg:p-[40px] flex flex-col justify-center flex-1">
+                        <div class="flex items-center gap-[12px] mb-[16px]">
+                            <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">MEP engineering</span>
+                            <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                            <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                        </div>
+                        <h3 class="text-primary-black text-[22px] lg:text-[28px] font-semibold leading-[130%] mb-[12px] group-hover:text-primary-cyan transition-colors">How MEP coordination prevents costly design conflicts in large projects</h3>
+                        <p class="text-secondary-dark2 text-[14px] lg:text-[15px] leading-[160%] mb-[20px] line-clamp-3">Effective MEP coordination integrates mechanical, electrical, and plumbing systems early to avoid rework and schedule delays during construction.</p>
+                        <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </span>
+                    </div>
+                </a>
+                </div>
+
+                <!-- Carousel Article 3 — Ductwork (hidden by default) -->
+                <div class="filterable-card hidden" data-category="ductwork">
+                <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                    <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
+                        <img src="assets/Blog/Blog-Img-3.png" alt="HVAC ductwork layout ceiling plenum" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-[24px] lg:p-[40px] flex flex-col justify-center flex-1">
+                        <div class="flex items-center gap-[12px] mb-[16px]">
+                            <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">Ductwork</span>
+                            <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                            <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                        </div>
+                        <h3 class="text-primary-black text-[22px] lg:text-[28px] font-semibold leading-[130%] mb-[12px] group-hover:text-primary-cyan transition-colors">Best practices for ductwork design in commercial ceiling plenums</h3>
+                        <p class="text-secondary-dark2 text-[14px] lg:text-[15px] leading-[160%] mb-[20px] line-clamp-3">Proper ductwork routing through ceiling plenums requires careful planning of duct sizes, transitions, and fire damper placement for code compliance.</p>
+                        <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </span>
+                    </div>
+                </a>
+                </div>
+
+                <!-- Carousel Article 4 — Industrial HVAC (hidden by default) -->
+                <div class="filterable-card hidden" data-category="industrial">
+                <a href="#" class="group flex flex-col md:flex-row bg-primary-pure-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                    <div class="relative overflow-hidden md:w-[45%] lg:w-[40%] flex-shrink-0 aspect-[4/3]">
+                        <img src="assets/Blog/Blog-Img-4.png" alt="Industrial HVAC cooling systems data center" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-[24px] lg:p-[40px] flex flex-col justify-center flex-1">
+                        <div class="flex items-center gap-[12px] mb-[16px]">
+                            <span class="text-gradient-dark2-cyan text-[12px] font-semibold uppercase tracking-wider">Industrial HVAC</span>
+                            <span class="w-[4px] h-[4px] rounded-full bg-secondary-gray"></span>
+                            <span class="text-secondary-gray text-[12px]">5 min. read</span>
+                        </div>
+                        <h3 class="text-primary-black text-[22px] lg:text-[28px] font-semibold leading-[130%] mb-[12px] group-hover:text-primary-cyan transition-colors">Industrial HVAC requirements for data centers and critical facilities</h3>
+                        <p class="text-secondary-dark2 text-[14px] lg:text-[15px] leading-[160%] mb-[20px] line-clamp-3">Data centers demand precision cooling with redundant HVAC systems, strict temperature tolerances, and uninterrupted airflow management strategies.</p>
+                        <span class="text-primary-cyan font-semibold text-[14px] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read more <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </span>
+                    </div>
+                </a>
+                </div>
+
             </div>
+
+            <!-- Pagination (hidden by default, shown when filtering) -->
+            <div id="blog-pagination" class="hidden flex items-center justify-center gap-[8px] mt-[40px]"></div>
 
         </div>
     </section>
@@ -316,7 +458,7 @@
     <!-- =============================== -->
     <!-- FEATURED ARTICLES SECTION       -->
     <!-- =============================== -->
-    <section class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
+    <section id="featured-articles-section" class="relative py-[60px] lg:py-[100px] lg:px-[80px] bg-primary-pure-white">
         <!-- Top border: gradient-fade-cyan (transparent → cyan → transparent) -->
         <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-cyan to-transparent opacity-80"></div>
 
@@ -635,6 +777,118 @@
 
         document.querySelectorAll('.scroll-animate').forEach(el => {
             observer.observe(el);
+        });
+    });
+</script>
+
+<!-- Category Tags Selection + Pagination Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tags = document.querySelectorAll('.category-tag');
+        const allTag = document.querySelector('.category-tag[data-category="all"]');
+        const cards = document.querySelectorAll('.filterable-card');
+        const featuredSection = document.getElementById('featured-articles-section');
+        const pagination = document.getElementById('blog-pagination');
+        const defaultCategories = ['design', 'engineering'];
+        const ITEMS_PER_PAGE = 4;
+        let currentPage = 1;
+
+        function getFilteredCards() {
+            const isAll = allTag.classList.contains('active');
+            if (isAll) return [];
+            const activeCategories = [];
+            tags.forEach(t => {
+                if (t !== allTag && t.classList.contains('active')) {
+                    activeCategories.push(t.dataset.category);
+                }
+            });
+            return Array.from(cards).filter(c => activeCategories.includes(c.dataset.category));
+        }
+
+        function renderPagination(totalItems) {
+            pagination.innerHTML = '';
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+            if (totalPages <= 1) {
+                pagination.classList.add('hidden');
+                return;
+            }
+            pagination.classList.remove('hidden');
+
+            // Page number buttons
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'pagination-btn' + (i === currentPage ? ' active' : '');
+                btn.textContent = i;
+                btn.addEventListener('click', () => {
+                    currentPage = i;
+                    applyFilter();
+                    // Scroll to top of filterable cards
+                    document.getElementById('filterable-cards').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                pagination.appendChild(btn);
+            }
+
+            // Next arrow
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'pagination-btn arrow';
+            nextBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] font-bold">chevron_right</span>';
+            nextBtn.disabled = currentPage >= totalPages;
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    applyFilter();
+                    document.getElementById('filterable-cards').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+            pagination.appendChild(nextBtn);
+        }
+
+        function applyFilter() {
+            const isAll = allTag.classList.contains('active');
+
+            if (isAll) {
+                cards.forEach(card => {
+                    if (defaultCategories.includes(card.dataset.category)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                featuredSection.classList.remove('hidden');
+                pagination.classList.add('hidden');
+                pagination.innerHTML = '';
+            } else {
+                const filtered = getFilteredCards();
+                const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+                if (currentPage > totalPages) currentPage = totalPages || 1;
+
+                // Hide all cards first
+                cards.forEach(c => c.classList.add('hidden'));
+
+                // Show only the current page's cards
+                const start = (currentPage - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                filtered.slice(start, end).forEach(c => c.classList.remove('hidden'));
+
+                featuredSection.classList.add('hidden');
+                renderPagination(filtered.length);
+            }
+        }
+
+        tags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                if (tag === allTag) {
+                    tags.forEach(t => t.classList.remove('active'));
+                    allTag.classList.add('active');
+                } else {
+                    allTag.classList.remove('active');
+                    tag.classList.toggle('active');
+                    const anyActive = document.querySelector('.category-tag.active');
+                    if (!anyActive) allTag.classList.add('active');
+                }
+                currentPage = 1;
+                applyFilter();
+            });
         });
     });
 </script>
